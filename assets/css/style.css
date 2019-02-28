@@ -4,14 +4,14 @@
 }
 
 body {
-    background-color: black;
+    background-color: rgb(239, 244, 245);
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
 #canvas-overlay {
     font-family: "Playfair Display", sans-serif;
-    color: white;
+    color: black;
     position: fixed;
     top: 0px;
     left: 0px;
