@@ -139,6 +139,8 @@
 }
 .nav-open-button.active {
     margin-left: 0px;
+	transition-timing-function: cubic-bezier(.4,-0.5,0,1.2);
+    transition-delay: 0.2s;
 }
 
 @media (orientation: portrait) {
