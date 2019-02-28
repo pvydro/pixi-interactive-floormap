@@ -1,5 +1,6 @@
 var Loader = {
-    loadAll: function() {
-        PIXI.loader.add(Object.keys(ImageURLS));
-    }
+    loadAll: function(callback) {
+        PIXI.loader.add(Object.values(ImageURLS))
+        .load(callback);
+    },
 }
