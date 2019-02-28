@@ -1,26 +1,30 @@
 var HomeDiagram = undefined;
 
 function createHomeDiagram() {
+    // Get home diagram graphics
+    let homeLowDiagramTexture = PIXI.Texture.from(ImageURLS.HOME_LOWER_DIAGRAM);
+    let homeMidDiagramTexture = PIXI.Texture.from(ImageURLS.HOME_MID_DIAGRAM);
+    let homeUpperDiagramTexture = PIXI.Texture.from(ImageURLS.HOME_UPPER_DIAGRAM);
     // Create home diagram sprite
-    let homeDiagramTexture = PIXI.Texture.from(ImageURLS.homeDiagram);
-    HomeDiagram = new PIXI.Sprite(homeDiagramTexture);
+    HomeDiagram = new PIXI.Sprite(homeLowDiagramTexture);
 
+    // Add all textures to HomeDiagram
+    HomeDiagram.lowTexture = homeLowDiagramTexture;
+    HomeDiagram.midTexture = homeMidDiagramTexture;
+    HomeDiagram.upperTexture = homeUpperDiagramTexture;
     // Apply home diagram dragging capabilities
     HomeDiagram.interactive = true;
     HomeDiagram.buttonMode = true;
+    TinkObj.makeDraggable(HomeDiagram);
+    // Set initial HomeDiagram position
     HomeDiagram.anchor.set(0.5);
     HomeDiagram.position.set(window.innerWidth / 2, window.innerHeight / 2);
-    TinkObj.makeDraggable(HomeDiagram);
 
     HomeDiagram.resize = function() {
-        // let width = window.innerWidth;
         let width = Application.renderer.width;
         
-        // this.resizeByWidth(width);
         resizeSpriteByWidth(width, this);
 
-        // HomeDiagram.position.x = Application.renderer.width / 2;
-        // HomeDiagram.position.y = Application.renderer.height / 2;
         HomeDiagram.position.set(window.innerWidth / 2, window.innerHeight / 2);
     }
 
