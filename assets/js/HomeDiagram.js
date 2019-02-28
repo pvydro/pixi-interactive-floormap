@@ -2,16 +2,23 @@ var HomeDiagram = undefined;
 
 function createHomeDiagram() {
     // Create home diagram sprite
-    let homeDiagramTexture = PIXI.Texture.fromImage(ImageURLS.homeDiagram);
+    let homeDiagramTexture = PIXI.Texture.from(ImageURLS.homeDiagram);
     HomeDiagram = new PIXI.Sprite(homeDiagramTexture);
 
-    // applySpriteFunctions(HomeDiagram);
+    // Apply home diagram dragging capabilities
+    HomeDiagram.interactive = true;
+    HomeDiagram.buttonMode = true;
+    HomeDiagram.anchor.set(0.5);
+    HomeDiagram.position.set(0, 0);
+    TinkObj.makeDraggable(HomeDiagram);
 
     HomeDiagram.resize = function() {
         // let width = window.innerWidth;
         let width = Application.renderer.width;
+        
         // this.resizeByWidth(width);
         resizeSpriteByWidth(width, this);
+        this.position.set(0, 0);
     }
 
     HomeDiagram.update = function() {

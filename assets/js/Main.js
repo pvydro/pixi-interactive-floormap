@@ -1,4 +1,6 @@
 var Application = undefined;
+var TinkObj = undefined;
+var TinkPointer = undefined;
 
 // App object for updating & rendering
 var App = {};
@@ -16,6 +18,9 @@ App.update = function() {
             entity.update();
         }
     }
+
+    // Update Tink
+    TinkObj.update();
 }
 
 App.render = function() {
@@ -30,6 +35,11 @@ App.render = function() {
 }
 
 App.resizeAll = function() {
+	let parent = Application.view.parentNode;
+   
+	// Resize the renderer
+	Application.renderer.resize(parent.clientWidth, parent.clientHeight);
+
     // Resize all entities in current scene
     var allEntities = SceneManager.currentScene.children;
     for (var i in allEntities) {
@@ -39,24 +49,26 @@ App.resizeAll = function() {
             entity.resize();
         }
     }
-
 }
 
 App.initialize = function() {
     // Assign rendererOptions
     let mapCanvas = document.getElementById("map-canvas");
     let rendererOptions = {
-        view: mapCanvas,
+        autoResize: true,
+        resolution: devicePixelRatio,
         backgroundColor: 0xeff4f5
     }
 
     // Create application
     Application = new PIXI.Application(rendererOptions);
+    TinkObj = new Tink(PIXI, Application.renderer.view);
+    TinkPointer = TinkObj.makePointer();
+    document.querySelector('#map-canvas').appendChild(Application.view);
 
     // Initialize scenes & set initial scene
     SceneManager.initializeScenes();
     SceneManager.enterScene(SceneManager.Scenes.HOME);
-
 
     App.render();
 }

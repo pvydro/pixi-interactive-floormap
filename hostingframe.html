@@ -17,6 +17,7 @@
             overflow: hidden;
         }
         #background {
+            pointer-events: none;
             position: fixed;
             top: 50%;
             left: 50%;
@@ -31,6 +32,7 @@
             filter: blur(10px) contrast(60%);
         }
         #iframe-container {
+            pointer-events: none;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -44,6 +46,7 @@
         }
 
         #iframe-container .map-frame {
+            pointer-events: all;
             position: absolute;
             top: 0px;
             left: 0px;
@@ -55,6 +58,7 @@
         }
 
         #iframe-container .iframe-inner-shadow {
+            pointer-events: none;
             position: absolute;
             left: 0px;
             top: 0px;
