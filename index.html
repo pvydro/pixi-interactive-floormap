@@ -7,9 +7,11 @@
     <title>Timber Cove</title>
 
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/nav.css">
     
-    <!-- <script src="assets/js/jquery-3.3.1.min.js"></script> -->
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
     <script src="assets/js/pixi.min.js"></script>
     <script src="assets/js/Tink.js"></script>
     <script src="assets/js/Sprite.js"></script>
@@ -18,6 +20,7 @@
     <script src="assets/js/HomeDiagram.js"></script>
     <script src="assets/js/Main.js"></script>
     <script src="assets/js/SceneManager.js"></script>
+    <script src="assets/js/Nav.js"></script>
 </head>
 <body>
 
@@ -27,6 +30,37 @@
     <div id="canvas-overlay">
         <div class="header-piece">
             <h1>Explore the Home</h1>
+        </div>
+
+        <div id="side-nav" class="shadow-effect-8">
+            <div class="nav-buttons">
+                <div class="nav-header">
+                    <h1>All Rooms</h1>
+                </div>
+                <a class="nav-link">
+                    Button test
+                </a>
+                <a class="nav-link">
+                    Button test two
+                </a>
+                <a class="nav-link">
+                    Button test two
+                </a>
+                <a class="nav-link">
+                    Button test two
+                </a>
+                <a class="nav-link">
+                    Button test two
+                </a>
+            </div>
+
+            <div class="toggle-button" onclick="toggleNav();">
+                <p><i class="fas fa-angle-left"></i></p>
+            </div>
+        </div>
+
+        <div class="nav-open-button active" onclick="toggleNav();">
+            <p><i class="fas fa-angle-right"></i></p>
         </div>
     </div>
 

@@ -1,0 +1,148 @@
+:root {
+    --nav-border-radius: 10px;
+    --nav-secondary-color: #459e76;
+}
+
+#side-nav {
+    pointer-events: all;
+    position: fixed;
+    height: 90%;
+    top: 50%;
+    left: 0px;
+    margin-left: -30%;
+    transform: translateY(-50%);
+    background-color: white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    overflow-x: visible;
+    z-index: 99;
+    border-top-right-radius: var(--nav-border-radius);
+    border-bottom-right-radius: var(--nav-border-radius);
+    transition: 0.25s;
+    transition-timing-function: ease-in;
+}
+#side-nav.active {
+    margin-left: 0px;
+    transition-timing-function: ease-out;
+}
+#side-nav .nav-buttons {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    border-radius: inherit;
+}
+#side-nav .nav-link {
+    position: relative;
+    pointer-events: all;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    padding: 15px 15px;
+    background-color: inherit;
+    display: block;
+    box-sizing: border-box;
+    transition: 0.3s;
+    z-index: inherit;
+    overflow-x: visible;
+    transition-timing-function: cubic-bezier(.4,-0.9,0,1.75);
+}
+#side-nav .nav-link:hover {
+    cursor: pointer;
+    border-left: 5px solid var(--nav-secondary-color);
+}
+#side-nav .nav-link .nav-hover-indicator {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--nav-secondary-color);
+    right: 0px;
+    z-index: -1;
+    font-size: 0px;
+    overflow-x: visible;
+    transition: 0.3s;
+	transition-timing-function: cubic-bezier(.4,-0.9,0,1.75);
+}
+#side-nav .nav-link .nav-hover-indicator.active {
+    right: -30px;
+    -webkit-text-fill-color: var(--nav-secondary-color);
+    -webkit-text-stroke-width: 3px;
+    font-size: 35px;
+}
+
+#side-nav .nav-header {
+    pointer-events: none;
+    padding: 10px 10px;
+    color: black;
+}
+#side-nav .nav-header::after {
+    content: "";
+    position: absolute;
+    width: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid gray;
+    border-radius: 100%;
+    z-index: 999;
+}
+#side-nav .toggle-button, .nav-open-button {
+    opacity: 1;
+    top: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    z-index: -999;
+    transition: 0.3s;
+	transition-timing-function: cubic-bezier(.4,-0.5,0,1.75);
+}
+#side-nav .toggle-button {
+    position: absolute;
+    right: 0px;
+    transform: translate(50%, -50%);
+}
+#side-nav .toggle-button:hover, .nav-open-button:hover {
+    right: -3%;
+    cursor: pointer;
+}
+#side-nav .toggle-button p, .nav-open-button p {
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(70%, -50%);
+    font-size: 20px;
+    text-align: center;
+}
+.nav-open-button {
+    pointer-events: all;
+    color: black;
+    position: fixed;
+    left: 10px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    margin-left: -50%;
+    transition-timing-function: ease-out;
+
+}
+.nav-open-button:hover {
+    margin-left: 5px;
+    filter: brightness(0.95);
+}
+.nav-open-button p {
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -47%);
+    font-size: 30px;
+}
+.nav-open-button.active {
+    margin-left: 0px;
+}
+
+@media (orientation: portrait) {
+    #side-nav {
+
+    }
+}
