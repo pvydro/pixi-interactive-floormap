@@ -9,8 +9,7 @@ function createHomeDiagram() {
     HomeDiagram.interactive = true;
     HomeDiagram.buttonMode = true;
     HomeDiagram.anchor.set(0.5);
-    HomeDiagram.position.x = Application.renderer.width / 2;
-    HomeDiagram.position.y = Application.renderer.height / 2;
+    HomeDiagram.position.set(window.innerWidth / 2, window.innerHeight / 2);
     TinkObj.makeDraggable(HomeDiagram);
 
     HomeDiagram.resize = function() {
@@ -19,8 +18,10 @@ function createHomeDiagram() {
         
         // this.resizeByWidth(width);
         resizeSpriteByWidth(width, this);
-        HomeDiagram.position.x = Application.renderer.width / 2;
-        HomeDiagram.position.y = Application.renderer.height / 2;
+
+        // HomeDiagram.position.x = Application.renderer.width / 2;
+        // HomeDiagram.position.y = Application.renderer.height / 2;
+        HomeDiagram.position.set(window.innerWidth / 2, window.innerHeight / 2);
     }
 
     HomeDiagram.update = function() {
