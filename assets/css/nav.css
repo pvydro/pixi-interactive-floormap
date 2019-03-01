@@ -25,8 +25,11 @@
     transition-timing-function: ease-out;
 }
 #side-nav .nav-buttons {
+    position: relative;
+    top: 50%;
     height: 100%;
     width: 100%;
+    transform: translateY(-50%);
     background-color: white;
     border-radius: inherit;
 }
