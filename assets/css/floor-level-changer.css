@@ -3,7 +3,7 @@
     bottom: var(--fixed-margin);
     right: var(--fixed-margin);
     color: black;
-    transform: translateY(35%);
+    transform: translateY(15%);
 }
 #level-changer .level-changer-buttons {
     position: absolute;
@@ -16,7 +16,7 @@
 }
 #level-changer .level-button {
     pointer-events: all;
-    display: inline-block;
+    /* display: inline-block; */
     font-size: 40px;
     top: 50%;
     margin: 0px 10px;
@@ -45,14 +45,4 @@
     transform-origin: bottom right;
     transform: rotate(90deg) translateY(100%);
     border-top: 2px solid var(--secondary-color);
-}
-
-@media (orientation: portrait) {
-    #level-changer {
-        transform: none;
-    }
-    #level-changer .level-button {
-        left: 0px;
-        display: block;
-    }
 }
