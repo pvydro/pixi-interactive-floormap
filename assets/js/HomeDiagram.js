@@ -18,6 +18,8 @@ function createHomeDiagram() {
         new HomeFloor(FloorType.MIDDLE),
         new HomeFloor(FloorType.UPPER)
     ]
+    HomeDiagram.currentFloorIndex = 0;
+    HomeDiagram.currentFloor = HomeDiagram.floors[HomeDiagram.currentFloorIndex];
 
     // Apply home diagram dragging capabilities
     HomeDiagram.interactive = true;
@@ -31,6 +33,9 @@ function createHomeDiagram() {
     HomeDiagram.init = function() {
         // Initialize all rooms
         createAllRooms();
+
+        // Initialize initial floor
+        this.assignFloor();
 
         // Initialize all floors
         // for (var i in this.floors) {
@@ -59,6 +64,16 @@ function createHomeDiagram() {
 
     HomeDiagram.downOneFloor = function() {
 
+    }
+
+    HomeDiagram.assignFloor = function() {
+        // Get floor using index
+        this.currentFloor = this.floors[this.currentFloorIndex];
+
+        this.currentFloor.init();
+
+        // Init functions
+        this.currentFloor.populateSideNav();
     }
 
     // Initialize
