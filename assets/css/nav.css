@@ -1,8 +1,3 @@
-:root {
-    --nav-border-radius: 10px;
-    --nav-secondary-color: #459e76;
-}
-
 #side-nav {
     pointer-events: all;
     position: fixed;
@@ -140,14 +135,31 @@
     transform: translate(-40%, -47%);
     font-size: 30px;
 }
-.nav-open-button.active {
+.nav-open-button.is-active {
     margin-left: 0px;
 	transition-timing-function: cubic-bezier(.4,-0.5,0,1.2);
     transition-delay: 0.2s;
 }
 
+.mobile-nav-button {
+    pointer-events: all;
+    position: fixed;
+    bottom: var(--fixed-margin);
+    left: var(--fixed-margin);
+    z-index: 999;
+}
+
 @media (orientation: portrait) {
     #side-nav {
+        margin-left: -100%;
+    }
+    .nav-open-button {
+        display: none;
+    }
+}
 
+@media (orientation: landscape) {
+    .mobile-nav-button {
+        display: none;
     }
 }

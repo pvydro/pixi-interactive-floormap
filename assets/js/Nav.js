@@ -15,13 +15,21 @@ $(document).ready(function() {
 });
 
 function toggleNav() {
+    var mobileNav = false;
+    // Check if using mobile-nav or not
+    if ($('.nav-open-button').css('display') === 'none'
+    && $('.mobile-nav-button').css('display') !== 'none') {
+        mobileNav = true;
+    }
+
+    // Open sidenav
     let nav = $("#side-nav");
-    let navOpenBtn = $('.nav-open-button');
+    let navOpenBtn = mobileNav ? $('.mobile-nav-button .hamburger') : $('.nav-open-button');
     if (nav.hasClass("active")) {
         nav.removeClass("active");
-        navOpenBtn.addClass("active");
+        navOpenBtn.removeClass("is-active");
     } else {
         nav.addClass("active");
-        navOpenBtn.removeClass("active");
+        navOpenBtn.addClass("is-active");
     }
 }
