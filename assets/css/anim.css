@@ -1,0 +1,28 @@
+@keyframes level-changer-hover-up {
+    0% {
+        transform: translateY(0px);
+        border-top: 0px;
+    }
+    75% {
+        transform: translateY(calc(var(--level-changer-hover-amt) * -1));
+        border-top: 3px solid var(--secondary-color);
+    }
+    100% {
+        transform: translateY(0px);
+        border-top: 0px;
+    }
+}
+@keyframes level-changer-hover-down {
+    0% {
+        transform: translateY(0px);
+        border-top: 0px;
+    }
+    75% {
+        transform: translateY(calc(var(--level-changer-hover-amt)));
+        border-bottom: 3px solid var(--secondary-color);
+    }
+    100% {
+        transform: translateY(0px);
+        border-bottom: 0px;
+    }
+}
