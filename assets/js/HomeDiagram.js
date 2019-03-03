@@ -33,6 +33,8 @@ function createHomeDiagram() {
         // Attach floor changing buttons
         $('.increase-button').on("click", this.upOneFloor.bind(this));
         $('.decrease-button').on("click", this.downOneFloor.bind(this));
+
+        HomeDiagram.checkLevelButtons();
     }
 
     HomeDiagram.resize = function() {
@@ -53,14 +55,10 @@ function createHomeDiagram() {
 
         Transition.enableTransition(function() {
             this.currentFloorIndex++;
-
             this.assignFloor();
-    
-            if (this.currentFloorIndex == this.floors.length - 1) {
-                $('.increase-button').fadeOut(0);
-            }
-            $('.decrease-button').fadeIn(0);
+            this.checkLevelButtons();
         }.bind(this));
+
     }
 
     HomeDiagram.downOneFloor = function() {
@@ -71,11 +69,7 @@ function createHomeDiagram() {
         Transition.enableTransition(function() {
             this.currentFloorIndex--;
             this.assignFloor();
-
-            if (this.currentFloorIndex == 0) {
-                $('.decrease-button').fadeOut(100);
-            }
-            $('.increase-button').fadeIn(100);
+            this.checkLevelButtons();
         }.bind(this));
     }
 
@@ -90,6 +84,31 @@ function createHomeDiagram() {
         this.currentFloor.init();
         this.currentFloor.populateSideNav();
 
+    }
+
+    HomeDiagram.checkLevelButtons = function() {
+        if (this.currentFloorIndex == this.floors.length - 1) {
+            $('.increase-button').css({
+                'color': 'darkgray',
+                'pointer-events': 'none'
+            });
+        } else {
+            $('.increase-button').css({
+                'color': 'black',
+                'pointer-events': 'all'
+            });
+        }
+        if (this.currentFloorIndex == 0) {
+            $('.decrease-button').css({
+                'color': 'darkgray',
+                'pointer-events': 'none'
+            });
+        } else {
+            $('.decrease-button').css({
+                'color': 'black',
+                'pointer-events': 'all'
+            });
+        }
     }
 
     // Initialize
