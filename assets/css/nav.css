@@ -200,6 +200,12 @@
     }
 }
 
+@media (orientation: portrait) {
+    .nav-indicator-text {
+        display: none;
+    }
+}
+
 @media (orientation: landscape) {
     .mobile-nav-button {
         display: none;

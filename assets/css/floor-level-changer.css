@@ -17,7 +17,6 @@
 #level-changer .level-button {
     pointer-events: none;
     color: darkgray;
-    /* display: inline-block; */
     font-size: 40px;
     top: 50%;
     margin: 0px 10px;
