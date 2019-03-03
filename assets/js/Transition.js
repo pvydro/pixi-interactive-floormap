@@ -19,7 +19,7 @@ var Transition = {
             $('.darkener').removeClass('enabled');
 
             $('.darkener').css({
-                'margin-top': '100%',
+                'margin-top': '200vh',
                 'transition': '0.3s'
             });
             
@@ -28,7 +28,7 @@ var Transition = {
             function(e) {
                 $(this).off();
                 $('.darkener').css({
-                    'margin-top': '-100%',
+                    'margin-top': '-100vh',
                     'transition': '0s'
                 });
             });
