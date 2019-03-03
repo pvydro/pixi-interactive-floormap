@@ -3,8 +3,8 @@
     position: fixed;
     height: 90%;
     top: 50%;
-    left: 0px;
-    margin-left: -30%;
+    left: -150%;
+    margin-left: -100%;
     transform: translateY(-50%);
     background-color: white;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
@@ -16,10 +16,11 @@
     transition-timing-function: ease-in;
 }
 #side-nav.active {
+    left: 0px;
     margin-left: 0px;
     transition-timing-function: ease-out;
 }
-#side-nav .nav-buttons {
+#side-nav .nav-inner {
     position: relative;
     top: 50%;
     height: 100%;
@@ -46,13 +47,13 @@
 }
 #side-nav .nav-link:hover {
     cursor: pointer;
-    border-left: 5px solid var(--nav-secondary-color);
+    border-left: 5px solid var(--secondary-color);
 }
 #side-nav .nav-link .nav-hover-indicator {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--nav-secondary-color);
+    color: var(--secondary-color);
     right: 0px;
     z-index: -1;
     font-size: 0px;
@@ -62,7 +63,7 @@
 }
 #side-nav .nav-link .nav-hover-indicator.active {
     right: -30px;
-    -webkit-text-fill-color: var(--nav-secondary-color);
+    -webkit-text-fill-color: var(--secondary-color);
     -webkit-text-stroke-width: 3px;
     font-size: 35px;
 }
@@ -71,6 +72,7 @@
     pointer-events: none;
     padding: 10px 10px;
     color: black;
+    text-align: center;
 }
 #side-nav .nav-header::after {
     content: "";
@@ -119,12 +121,17 @@
     position: fixed;
     left: 10px;
     transform: translateY(-50%);
+    margin-left: -50%;
     border-radius: 50%;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
-    margin-left: -50%;
     transition-timing-function: ease-out;
-
 }
+.nav-open-button.is-active {
+    margin-left: 0px;
+	transition-timing-function: cubic-bezier(.4,-0.5,0,1.2);
+    transition-delay: 0.2s;
+}
+
 .nav-open-button:hover {
     margin-left: 5px;
     filter: brightness(0.95);
@@ -135,12 +142,6 @@
     transform: translate(-40%, -47%);
     font-size: 30px;
 }
-.nav-open-button.is-active {
-    margin-left: 0px;
-	transition-timing-function: cubic-bezier(.4,-0.5,0,1.2);
-    transition-delay: 0.2s;
-}
-
 .mobile-nav-button {
     pointer-events: all;
     position: fixed;
@@ -152,7 +153,34 @@
 @media (orientation: portrait) {
     #side-nav {
         margin-left: -100%;
+        height: 100%;
+        width: 100%;
+        border-radius: 0px;
     }
+
+    #side-nav .toggle-button {
+        display: none;
+    }
+    #side-nav .nav-inner {
+        width: 100vw;
+        height: 100vh;
+    }
+    #side-nav .nav-buttons {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+    }
+    #side-nav .nav-header {
+        font-size: 5vw;
+        margin-top: 12%;
+    }
+    #side-nav .nav-header::after {
+        content: "";
+        width: 60%;
+    }
+
     .nav-open-button {
         display: none;
     }

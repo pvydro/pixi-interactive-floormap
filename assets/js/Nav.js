@@ -24,7 +24,7 @@ function toggleNav() {
 
     // Open sidenav
     let nav = $("#side-nav");
-    let navOpenBtn = mobileNav ? $('.mobile-nav-button .hamburger') : $('.nav-open-button');
+    let navOpenBtn = mobileNav ? $('.mobile-nav-button .hamburger') : $('#nav-open-button');
     if (nav.hasClass("active")) {
         nav.removeClass("active");
         navOpenBtn.removeClass("is-active");
