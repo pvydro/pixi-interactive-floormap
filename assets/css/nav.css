@@ -127,8 +127,8 @@
     transition-timing-function: ease-out;
 }
 .nav-indicator-text {
-    font-weight: 700;
     color: black;
+    font-weight: 700;
     position: fixed;
     top: 50%;
     left: 80px;
@@ -139,6 +139,7 @@
     animation: menu-text-hide 0.5s;
     animation-delay: 3s;
     animation-fill-mode: forwards;
+    z-index: -999;
 }
 .nav-open-button.is-active {
     margin-left: 0px;
