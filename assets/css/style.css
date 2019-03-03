@@ -1,9 +1,9 @@
 * {
     margin: 0px;
     padding: 0px;
-    -webkit-tap-highlight-color:transparent;
-    -moz-tap-highlight-color:transparent;
-    -o-tap-highlight-color:transparent;
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -o-tap-highlight-color: transparent;
 }
 
 *:focus {

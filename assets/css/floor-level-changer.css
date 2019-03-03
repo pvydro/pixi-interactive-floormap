@@ -3,6 +3,7 @@
     bottom: var(--fixed-margin);
     right: var(--fixed-margin);
     color: black;
+    transform: translateY(35%);
 }
 #level-changer .level-changer-buttons {
     position: absolute;
@@ -17,11 +18,8 @@
     pointer-events: all;
     display: inline-block;
     font-size: 40px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    width: 40%;
-    height: 110%;
     top: 50%;
+    margin: 0px 10px;
 }
 #level-changer .level-button:hover {
     cursor: pointer;
@@ -33,13 +31,20 @@
 }
 #level-changer .level-changer-buttons .increase-button:hover i {
     transform: translateY(calc(var(--level-changer-hover-amt) * -1));
-    border-top: 3px solid black;
+    border-top: 3px solid var(--secondary-color);
 }
 #level-changer .level-changer-buttons .decrease-button:hover i {
     transform: translateY(var(--level-changer-hover-amt));
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid var(--secondary-color);
 }
-#level-changer .current-level-text {
-    padding-right: 10%;
-    float: left;
+#current-level-text {
+    color: black;
+    text-align: left;
+    position: fixed;
+    right: var(--fixed-margin);
+    bottom: var(--fixed-margin);
+    font-size: 20px;
+    transform-origin: bottom right;
+    transform: rotate(90deg) translateY(100%);
+    border-top: 2px solid black;
 }

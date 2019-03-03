@@ -73,7 +73,7 @@ App.initialize = function() {
     App.render();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+$(document).ready(function() {
     Loader.loadAll(App.initialize);
 });
 
