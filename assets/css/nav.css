@@ -80,7 +80,7 @@
     width: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 2px solid gray;
+    border: 2px solid var(--secondary-color);
     border-radius: 100%;
     z-index: 999;
 }
@@ -148,6 +148,9 @@
     bottom: var(--fixed-margin);
     left: var(--fixed-margin);
     z-index: 999;
+    -webkit-tap-highlight-color:transparent;
+    -moz-tap-highlight-color:transparent;
+    -o-tap-highlight-color:transparent;
 }
 
 @media (orientation: portrait) {
