@@ -1,7 +1,3 @@
-:root {
-    --level-changer-hover-amt: 5px;
-}
-
 * {
     margin: 0px;
     padding: 0px;
@@ -53,8 +49,8 @@ canvas {
 
 #level-changer {
     position: fixed;
-    right: 20px;
-    bottom: 20px;
+    bottom: var(--fixed-margin);
+    right: var(--fixed-margin);
     color: black;
 }
 #level-changer .level-changer-buttons {
@@ -95,8 +91,4 @@ canvas {
 #level-changer .current-level-text {
     padding-right: 10%;
     float: left;
-}
-
-@media (orientation: portrait) {
-    
 }
