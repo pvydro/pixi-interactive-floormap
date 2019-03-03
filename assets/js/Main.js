@@ -53,7 +53,6 @@ App.resizeAll = function() {
 
 App.initialize = function() {
     // Assign rendererOptions
-    let mapCanvas = document.getElementById("map-canvas");
     let rendererOptions = {
         autoResize: true,
         resolution: devicePixelRatio,

@@ -12,13 +12,34 @@ function createHomeDiagram() {
     HomeDiagram.lowTexture = homeLowDiagramTexture;
     HomeDiagram.midTexture = homeMidDiagramTexture;
     HomeDiagram.upperTexture = homeUpperDiagramTexture;
+    // Create all floors
+    HomeDiagram.floors = [
+        new HomeFloor(FloorType.LOWER),
+        new HomeFloor(FloorType.MIDDLE),
+        new HomeFloor(FloorType.UPPER)
+    ]
+
     // Apply home diagram dragging capabilities
     HomeDiagram.interactive = true;
     HomeDiagram.buttonMode = true;
     TinkObj.makeDraggable(HomeDiagram);
+
     // Set initial HomeDiagram position
     HomeDiagram.anchor.set(0.5);
     HomeDiagram.position.set(window.innerWidth / 2, window.innerHeight / 2);
+
+    HomeDiagram.init = function() {
+        // Initialize all rooms
+        createAllRooms();
+
+        // Initialize all floors
+        // for (var i in this.floors) {
+        //     let f = this.floors[i];
+        //     f.init();
+        // }
+
+        // Set initial floor
+    }
 
     HomeDiagram.resize = function() {
         let width = Application.renderer.width;
@@ -31,6 +52,18 @@ function createHomeDiagram() {
     HomeDiagram.update = function() {
     }
 
-    // Add new home diagram sprite to stage
+
+    HomeDiagram.upOneFloor = function() {
+
+    }
+
+    HomeDiagram.downOneFloor = function() {
+
+    }
+
+    // Initialize
+    HomeDiagram.init();
+
+    // Return new HomeDiagram sprite
     return HomeDiagram;
 }
