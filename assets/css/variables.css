@@ -1,0 +1,12 @@
+:root {
+    --level-changer-hover-amt: 5px;
+    --fixed-margin: 20px;
+    --nav-border-radius: 10px;
+    --nav-secondary-color: #459e76;
+}
+
+@media (orientation: portrait) {
+    :root {
+        --fixed-margin: 10px;
+    }
+}
