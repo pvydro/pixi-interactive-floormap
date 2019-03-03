@@ -63,12 +63,33 @@ canvas {
     width: 100%;
     height: 100%;
     margin-top: -100%;
-    background-color: rgba(0, 0, 0, 100);
+    background-color: rgba(255, 255, 255, 100);
     z-index: 999;
     transition: 0s;
+    filter: brightness(0.8);
+    transition-timing-function: ease-out;
 }
-
 .darkener.enabled {
     transition: 0.3s !important;
     margin-top: 0px !important;
+}
+.darkener .darkener-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 80%;
+    width: auto;
+    transform: translate(-50%, -50%);   
+}
+.darkener .darkener-overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: -moz-linear-gradient(45deg, rgba(191,210,85,0.2) 0%, rgba(142,185,42,0.2) 50%, rgba(114,170,0,0.2) 51%, rgba(158,203,45,0.2) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, rgba(191,210,85,0.2) 0%,rgba(142,185,42,0.2) 50%,rgba(114,170,0,0.2) 51%,rgba(158,203,45,0.2) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, rgba(191,210,85,0.2) 0%,rgba(142,185,42,0.2) 50%,rgba(114,170,0,0.2) 51%,rgba(158,203,45,0.2) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33bfd255', endColorstr='#339ecb2d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
 }

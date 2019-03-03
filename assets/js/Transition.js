@@ -32,7 +32,7 @@ var Transition = {
                     'transition': '0s'
                 });
             });
-        }, 200);
+        }, 600);
 
     }
 }
