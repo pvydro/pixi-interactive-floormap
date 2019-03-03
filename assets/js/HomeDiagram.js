@@ -58,7 +58,6 @@ function createHomeDiagram() {
             this.assignFloor();
             this.checkLevelButtons();
         }.bind(this));
-
     }
 
     HomeDiagram.downOneFloor = function() {

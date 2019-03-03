@@ -126,6 +126,20 @@
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
     transition-timing-function: ease-out;
 }
+.nav-indicator-text {
+    font-weight: 700;
+    color: black;
+    position: fixed;
+    top: 50%;
+    left: 80px;
+    font-size: 25px;
+    margin-left: 0px;
+    opacity: 1;
+    transform: translateY(-50%);
+    animation: menu-text-hide 0.5s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+}
 .nav-open-button.is-active {
     margin-left: 0px;
 	transition-timing-function: cubic-bezier(.4,-0.5,0,1.2);

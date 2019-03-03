@@ -1,5 +1,6 @@
 var Transition = {
     darkener: $('.darkener'),
+    transitioning: false,
 
     enableTransition: function(onComplete) {
         $('.darkener').addClass("enabled");

@@ -90,7 +90,6 @@ canvas {
     background: -moz-linear-gradient(45deg, rgba(191,210,85,0.2) 0%, rgba(142,185,42,0.2) 50%, rgba(114,170,0,0.2) 51%, rgba(158,203,45,0.2) 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(45deg, rgba(191,210,85,0.2) 0%,rgba(142,185,42,0.2) 50%,rgba(114,170,0,0.2) 51%,rgba(158,203,45,0.2) 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(45deg, rgba(191,210,85,0.2) 0%,rgba(142,185,42,0.2) 50%,rgba(114,170,0,0.2) 51%,rgba(158,203,45,0.2) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-
 }
 
 @media (orientation: portrait) {

@@ -26,3 +26,13 @@
         border-bottom: 0px;
     }
 }
+@keyframes menu-text-hide {
+    0% {
+        opacity: 1;
+        margin-left: 0px;
+    }
+    100% {
+        opacity: 0;
+        margin-left: -60px;
+    }
+}
