@@ -37,13 +37,9 @@ function createHomeDiagram() {
         // Initialize initial floor
         this.assignFloor();
 
-        // Initialize all floors
-        // for (var i in this.floors) {
-        //     let f = this.floors[i];
-        //     f.init();
-        // }
-
-        // Set initial floor
+        // Attach floor changing buttons
+        $('.increase-button').on("click", this.upOneFloor.bind(this));
+        $('.decrease-button').on("click", this.downOneFloor.bind(this));
     }
 
     HomeDiagram.resize = function() {
@@ -59,11 +55,31 @@ function createHomeDiagram() {
 
 
     HomeDiagram.upOneFloor = function() {
+        if (this.currentFloorIndex == this.floors.length - 1) {
+            return;
+        }
 
+        this.currentFloorIndex++;
+        this.assignFloor();
+
+        if (this.currentFloorIndex == this.floors.length - 1) {
+            $('.increase-button').fadeOut(100);
+        }
+        $('.decrease-button').fadeIn(100);
     }
 
     HomeDiagram.downOneFloor = function() {
+        if (this.currentFloorIndex == 0) {
+            return;
+        }
 
+        this.currentFloorIndex--;
+        this.assignFloor();
+
+        if (this.currentFloorIndex == 0) {
+            $('.decrease-button').fadeOut(100);
+        }
+        $('.increase-button').fadeIn(100);
     }
 
     HomeDiagram.assignFloor = function() {

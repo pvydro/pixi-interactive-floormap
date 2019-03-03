@@ -1,7 +1,7 @@
 var FloorType = {
-    LOWER: 0,
-    MIDDLE: 1,
-    UPPER: 2
+    LOWER: "Lower Level",
+    MIDDLE: "Middle Level",
+    UPPER: "Upper Level"
 }
 
 class HomeFloor {
@@ -10,7 +10,7 @@ class HomeFloor {
         this.waypoints = [];
         this.rooms = [];
 
-        this.init();
+        this.findRooms();
     }
 
     populateSideNav() {
@@ -30,6 +30,8 @@ class HomeFloor {
         // Find all rooms
         this.rooms = this.findRooms();
 
+        // Apply level name to level name text
+        $('#current-level-text').text(this.floorType);
     }
 
     findRooms() {
@@ -49,11 +51,9 @@ class HomeFloor {
             break;
         }
 
-        let roomIDKeys = Object.keys(RoomIDs);
-
-        for (var i in roomIDKeys) {
+        for (var i in roomIDs) {
             for (var r in AllRooms) {
-                if (AllRooms[r].id == roomIDKeys[i]) {
+                if (RoomIDs[AllRooms[r].id] == roomIDs[i]) {
                     rooms.push(AllRooms[r]);
                 }
             }
