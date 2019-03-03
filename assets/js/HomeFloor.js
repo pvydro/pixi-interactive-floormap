@@ -14,6 +14,7 @@ class HomeFloor {
     }
 
     populateSideNav() {
+        $('#side-nav .nav-buttons').empty();
         // Loop through all rooms and create a button for each
         for (var i in this.rooms) {
             let roomObj = this.rooms[i];
