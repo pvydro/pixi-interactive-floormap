@@ -46,5 +46,15 @@
     font-size: 20px;
     transform-origin: bottom right;
     transform: rotate(90deg) translateY(100%);
-    border-top: 2px solid black;
+    border-top: 2px solid var(--secondary-color);
+}
+
+@media (orientation: portrait) {
+    #level-changer {
+        transform: none;
+    }
+    #level-changer .level-button {
+        left: 0px;
+        display: block;
+    }
 }
