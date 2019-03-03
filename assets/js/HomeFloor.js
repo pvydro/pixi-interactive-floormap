@@ -8,9 +8,8 @@ class HomeFloor {
     constructor(floorType) {
         this.floorType = floorType;
         this.waypoints = [];
-        this.rooms = [];
-
-        this.findRooms();
+        this.rooms = this.findRooms();
+        this.texture = this.findTexture();        
     }
 
     populateSideNav() {
@@ -60,5 +59,22 @@ class HomeFloor {
         }
 
         return rooms;
+    }
+
+    findTexture() {
+        switch (this.floorType) {
+            case FloorType.LOWER:
+                return PIXI.loader.resources[ImageURLS.HOME_LOWER_DIAGRAM].texture;
+                // return PIXI.Texture.from(ImageURLS.HOME_LOWER_DIAGRAM);
+            break;
+            case FloorType.MIDDLE:
+                return PIXI.loader.resources[ImageURLS.HOME_MID_DIAGRAM].texture;
+                // return PIXI.Texture.from(ImageURLS.HOME_MID_DIAGRAM);
+            break;
+            case FloorType.UPPER:
+                return PIXI.loader.resources[ImageURLS.HOME_UPPER_DIAGRAM].texture;
+                // return PIXI.Texture.from(ImageURLS.HOME_UPPER_DIAGRAM);
+            break;
+        }
     }
 }

@@ -1,17 +1,10 @@
 var HomeDiagram = undefined;
 
 function createHomeDiagram() {
-    // Get home diagram graphics
-    let homeLowDiagramTexture = PIXI.Texture.from(ImageURLS.HOME_LOWER_DIAGRAM);
-    let homeMidDiagramTexture = PIXI.Texture.from(ImageURLS.HOME_MID_DIAGRAM);
-    let homeUpperDiagramTexture = PIXI.Texture.from(ImageURLS.HOME_UPPER_DIAGRAM);
     // Create home diagram sprite
-    HomeDiagram = new PIXI.Sprite(homeLowDiagramTexture);
+    // HomeDiagram = new PIXI.Sprite(PIXI.Texture.from(ImageURLS.HOME_LOWER_DIAGRAM));
+    HomeDiagram = new PIXI.Sprite(PIXI.loader.resources[ImageURLS.HOME_LOWER_DIAGRAM].texture);
 
-    // Add all textures to HomeDiagram
-    HomeDiagram.lowTexture = homeLowDiagramTexture;
-    HomeDiagram.midTexture = homeMidDiagramTexture;
-    HomeDiagram.upperTexture = homeUpperDiagramTexture;
     // Create all floors
     HomeDiagram.floors = [
         new HomeFloor(FloorType.LOWER),
@@ -53,19 +46,21 @@ function createHomeDiagram() {
     HomeDiagram.update = function() {
     }
 
-
     HomeDiagram.upOneFloor = function() {
         if (this.currentFloorIndex == this.floors.length - 1) {
             return;
         }
 
-        this.currentFloorIndex++;
-        this.assignFloor();
+        Transition.enableTransition(function() {
+            this.currentFloorIndex++;
 
-        if (this.currentFloorIndex == this.floors.length - 1) {
-            $('.increase-button').fadeOut(100);
-        }
-        $('.decrease-button').fadeIn(100);
+            this.assignFloor();
+    
+            if (this.currentFloorIndex == this.floors.length - 1) {
+                $('.increase-button').fadeOut(0);
+            }
+            $('.decrease-button').fadeIn(0);
+        }.bind(this));
     }
 
     HomeDiagram.downOneFloor = function() {
@@ -73,23 +68,28 @@ function createHomeDiagram() {
             return;
         }
 
-        this.currentFloorIndex--;
-        this.assignFloor();
+        Transition.enableTransition(function() {
+            this.currentFloorIndex--;
+            this.assignFloor();
 
-        if (this.currentFloorIndex == 0) {
-            $('.decrease-button').fadeOut(100);
-        }
-        $('.increase-button').fadeIn(100);
+            if (this.currentFloorIndex == 0) {
+                $('.decrease-button').fadeOut(100);
+            }
+            $('.increase-button').fadeIn(100);
+        }.bind(this));
     }
 
     HomeDiagram.assignFloor = function() {
         // Get floor using index
         this.currentFloor = this.floors[this.currentFloorIndex];
-
-        this.currentFloor.init();
+        
+        // Apply texture
+        this.texture = this.currentFloor.texture;
 
         // Init functions
+        this.currentFloor.init();
         this.currentFloor.populateSideNav();
+
     }
 
     // Initialize
