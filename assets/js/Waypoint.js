@@ -7,8 +7,11 @@ class Waypoint {
         // this.sprite = new PIXI.Sprite(PIXI.loader.resources[ImageURLS.TEST_LINK].texture);
         let circTxt = generateCircleTexture(Application.renderer, 20, 0xFF0000);
         this.sprite = new PIXI.Sprite(circTxt);
+
+        // Set position
         this.sprite.anchor.set(0.5, 0.5);
 
+        // Assign functions
         this.sprite.update = this.update;
         this.sprite.clicked = this.clicked;
 
