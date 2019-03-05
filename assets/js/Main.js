@@ -19,6 +19,9 @@ App.update = function() {
         }
     }
 
+    // Update waypoints
+    WaypointManager.update();
+
     // Update Tink
     TinkObj.update();
 }

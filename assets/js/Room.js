@@ -39,10 +39,9 @@ class Room {
         
         switch (this.id) {
             case "THEATER":
-            console.log("Wayment")
-            newWaypoints = [
-                new Waypoint(20, 20, "TEMP")
-            ]
+                newWaypoints = [
+                    new Waypoint(20, 20, "TEMP")
+                ]
             break;
         }
 
