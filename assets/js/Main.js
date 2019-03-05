@@ -14,10 +14,13 @@ App.update = function() {
     for (var i in allEntities) {
         let entity = allEntities[i];
         
-        if (entity.update !== null) {
+        if (entity.update) {
             entity.update();
         }
     }
+
+    // Update waypoints
+    WaypointManager.update();
 
     // Update Tink
     TinkObj.update();
@@ -45,7 +48,7 @@ App.resizeAll = function() {
     for (var i in allEntities) {
         let entity = allEntities[i];
         
-        if (entity.resize !== null) {
+        if (entity.resize) {
             entity.resize();
         }
     }

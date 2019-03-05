@@ -25,5 +25,6 @@ var SceneManager = {
 
     initializeScenes: function() {
         this.homeScene.addChild(createHomeDiagram());
+        HomeDiagram.addChild(WaypointManager.container);
     }
 }

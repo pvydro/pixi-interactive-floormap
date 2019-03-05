@@ -21,17 +21,31 @@ var AllRooms = [];
 class Room {
     constructor(roomID) {
         this.id = roomID;
-        this.waypoint = new Waypoint(this.roomID);
+        this.waypoints = this.findWaypoints();
     }
 
     findFloorLevel() {
-        if (LowerRoomIDs.indexOf(this.roomID) > -1) {
+        if (LowerRoomIDs.indexOf(this.id) > -1) {
             return 0;
-        } else if (MidRoomIDs.indexOf(this.roomID) > -1) {
+        } else if (MidRoomIDs.indexOf(this.id) > -1) {
             return 1;
-        } else if (UpperRoomIDs.indexOf(this.roomID) > -1) {
+        } else if (UpperRoomIDs.indexOf(this.id) > -1) {
             return 2;
         }
+    }
+
+    findWaypoints() {
+        let newWaypoints = [];
+        
+        switch (this.id) {
+            case "THEATER":
+                newWaypoints = [
+                    new Waypoint(20, 20, "TEMP")
+                ]
+            break;
+        }
+
+        return newWaypoints;
     }
 }
 

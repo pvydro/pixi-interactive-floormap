@@ -9,7 +9,7 @@ class HomeFloor {
         this.floorType = floorType;
         this.waypoints = [];
         this.rooms = this.findRooms();
-        this.texture = this.findTexture();        
+        this.texture = this.findTexture();
     }
 
     populateSideNav() {
