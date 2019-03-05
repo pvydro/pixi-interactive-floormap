@@ -2,7 +2,6 @@ var HomeDiagram = undefined;
 
 function createHomeDiagram() {
     // Create home diagram sprite
-    // HomeDiagram = new PIXI.Sprite(PIXI.Texture.from(ImageURLS.HOME_LOWER_DIAGRAM));
     HomeDiagram = new PIXI.Sprite(PIXI.loader.resources[ImageURLS.HOME_LOWER_DIAGRAM].texture);
 
     // Create all floors
