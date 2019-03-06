@@ -76,6 +76,25 @@ App.initialize = function() {
     App.render();
 }
 
+function showShowcasePage(id) {
+    console.log("SHOWED " + id);
+    // Create iframe
+    let frameElement = $('<iframe>', {
+        src: 'showcasepage.html?showcase=' + id,
+        id: 'showcase-frame',
+        frameborder: '0',
+        scrolling: 'no'
+    });
+    frameElement.css('pointer-events', 'all')
+
+    // Add iframe to DOM
+    frameElement.insertBefore('#showcase-page .back-button');
+}
+
+function hideShowcasePage() {
+
+}
+
 $(document).ready(function() {
     Loader.loadAll(App.initialize);
 });

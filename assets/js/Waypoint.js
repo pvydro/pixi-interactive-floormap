@@ -2,7 +2,6 @@ class Waypoint {
     constructor(xPercent, yPercent, showcaseID) {
         this.xPercent = xPercent;
         this.yPercent = yPercent;
-        this.showcaseID = showcaseID;
         this.color = 0x459e76;
 
         let radius = 60;
@@ -38,6 +37,7 @@ class Waypoint {
         this.sprite.scaleY = 1.0;
         this.sprite.color = this.color;
         this.sprite.clickedColor = 0x23513C;
+        this.sprite.showcaseID = showcaseID;
 
         WaypointManager.addWaypoint(this.sprite);
     }
@@ -69,8 +69,8 @@ class Waypoint {
             break;
             case this.State.HOVERED:
                 this.tint = 0xFFFFFF;
-                this.targetScaleX = 1.1;
-                this.targetScaleY = 1.7;
+                this.targetScaleX = 1.2;
+                this.targetScaleY = 1.2;
             break;
             case this.State.CLICKING:
                 this.tint = this.color;
@@ -94,6 +94,6 @@ class Waypoint {
     }
 
     clicked() {
-        
+        showShowcasePage(window.btoa(this.id));
     }
 }
