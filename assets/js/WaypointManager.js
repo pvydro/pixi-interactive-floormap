@@ -15,12 +15,14 @@ var WaypointManager = {
     this.container.addChild(waypoint);
   },
 
-  noOthersClicked: function() {
+  noOthersClicked: function(currentWaypoint) {
     for (var i in this.allWaypoints) {
       let w = this.allWaypoints[i];
-      if (w.currentState == w.State.CLICKING
-        || w.currentState == w.State.CLICKED) {
-          return false;
+      if (w != currentWaypoint) {
+        if (w.currentState == w.State.CLICKING
+          || w.currentState == w.State.CLICKED) {
+            return false;
+        }
       }
     }
     return true;

@@ -49,7 +49,7 @@ class Waypoint {
         this.responsiveScaleMultiplier = PORTRAIT ? 2.3 : 1.0;
 
         // Hover
-        if (WaypointManager.noOthersClicked()) {
+        if (WaypointManager.noOthersClicked(this)) {
             if (this.currentState != this.State.CLICKED) {
                 if (this.currentState == this.State.CLICKING) {
                     if (!TinkPointer.isDown) {
