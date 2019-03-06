@@ -23,7 +23,7 @@ function createHomeDiagram() {
     HomeDiagram.position.set(window.innerWidth / 2, window.innerHeight / 2);
 
     HomeDiagram.init = function() {
-        // Initialize all rooms
+        // Initialize all roomss
         createAllRooms();
 
         // Initialize initial floor

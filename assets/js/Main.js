@@ -59,7 +59,8 @@ App.initialize = function() {
     let rendererOptions = {
         autoResize: true,
         resolution: devicePixelRatio,
-        backgroundColor: 0xeff4f5
+        backgroundColor: 0xeff4f5,
+        antialias: true,
     }
 
     // Create application

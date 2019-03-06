@@ -4,22 +4,77 @@ class Waypoint {
         this.yPercent = yPercent;
         this.showcaseID = showcaseID;
 
-        // this.sprite = new PIXI.Sprite(PIXI.loader.resources[ImageURLS.TEST_LINK].texture);
-        let circTxt = generateCircleTexture(Application.renderer, 20, 0xFF0000);
+        let radius = 60
+        let circTxt = generateCircleTexture(Application.renderer, radius, 0xFF0000);
         this.sprite = new PIXI.Sprite(circTxt);
 
         // Set position
         this.sprite.anchor.set(0.5, 0.5);
+        let diagramBounds = {
+            x: HomeDiagram.position.x,
+            y: HomeDiagram.position.y,
+            width: HomeDiagram.width,
+            height: HomeDiagram.height
+        }
+
+        this.sprite.x = diagramBounds.width * (xPercent * 0.01);
+        this.sprite.y = diagramBounds.height * (yPercent * 0.01);
 
         // Assign functions
         this.sprite.update = this.update;
         this.sprite.clicked = this.clicked;
 
-        // HomeDiagram.addChild(p);
+        // Animation variables
+        this.sprite.State = {
+            IDLE: 0,
+            HOVERED: 1,
+            CLICKED: 2
+        }
+        this.sprite.currentState = this.sprite.State.IDLE;
+        this.sprite.targetScaleX = 1.0;
+        this.sprite.targetScaleY = 1.0;
+        this.sprite.scaleX = 1.0;
+        this.sprite.scaleY = 1.0;
+
         WaypointManager.addWaypoint(this.sprite);
     }
 
     update() {
+        // Hover
+        if (this.currentState != this.State.CLICKED) {
+            if (TinkPointer.hitTestSprite(this)) {
+                this.currentState = this.State.HOVERED;
+            } else {
+                this.currentState = this.State.IDLE;
+            }
+        }
+
+        // Alter target scale based on state
+        // if (this.currentState == this.State.HOVERED)  {
+        //     this.scaleX += (2.0 - this.scaleX) / 2;
+        // } else {}
+        switch (this.currentState) {
+            case this.State.IDLE:
+                this.targetScaleX = 1.0;
+                this.targetScaleY = 1.0;
+            break;
+            case this.State.HOVERED:
+                this.targetScaleX = 1.3;
+                this.targetScaleY = 1.3;
+            break;
+            case this.State.CLICKED:
+                this.targetScaleX = 1.15;
+                this.targetScaleY = 1.15;
+            break;
+        }
+
+        // Animate sprite scale
+        this.scaleX += (this.targetScaleX - this.scaleX) / 2;
+        this.scaleY += (this.targetScaleY - this.scaleY) / 2;
+        
+        // Apply sprite scale
+        this.scale.x = this.scaleX / 3;
+        this.scale.y = this.scaleY / 3;
     }
 
     clicked() {
