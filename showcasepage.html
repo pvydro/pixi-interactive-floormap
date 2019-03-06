@@ -17,29 +17,34 @@
 <body>
     
     <div id="main">
-        <div class="container">
+        <div class="container content-container">
             <div class="row">
-                <div class="col-md-6 text-column">
-                    <div id="title">
-                        <h1>Title</h1>
+                <div id="text-column" class="col-md-6">
+                    <div class="inner-content">
+                        <div class="tilt-container" data-tilt>
+                            <div class="title">
+                                <h1>Title</h1>
+                            </div>
+
+                            <div class="showcase-text">
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos in sapiente unde saepe ipsum, porro quam totam earum commodi vero veniam. Est obcaecati odio harum quia laborum quod excepturi sit.
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div id="showcase-text">
-                        <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos in sapiente unde saepe ipsum, porro quam totam earum commodi vero veniam. Est obcaecati odio harum quia laborum quod excepturi sit.
-                        </p>
-                    </div>
+                    <span class="border-piece"></span>
 
-                    <div id="showcase-images">
-
-                    </div>
                 </div>
-                <div class="col-md-6 image-column">
+                <div id="image-column" class="col-md-6">
                     Images
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="assets/js/tilt.jquery.js"></script>
 
 </body>
 </html>

@@ -2,8 +2,8 @@ var ShowcaseJSONObject = undefined;
 
 function assignText() {
     // Add header text
-    $("#title h1").text(ShowcaseJSONObject.name);
-    $("#showcase-text p").text(ShowcaseJSONObject.description)
+    $("#text-column .title h1").text(ShowcaseJSONObject.name);
+    $("#text-column .showcase-text p").text(ShowcaseJSONObject.description)
 }
 
 function getShowcaseJSONObjectByID() {
