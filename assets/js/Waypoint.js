@@ -5,7 +5,7 @@ class Waypoint {
         this.showcaseID = showcaseID;
 
         let radius = 60
-        let circTxt = generateCircleTexture(Application.renderer, radius, 0xFF0000);
+        let circTxt = generateCircleTexture(Application.renderer, radius, 0x459e76);
         this.sprite = new PIXI.Sprite(circTxt);
 
         // Set position
@@ -50,17 +50,14 @@ class Waypoint {
         }
 
         // Alter target scale based on state
-        // if (this.currentState == this.State.HOVERED)  {
-        //     this.scaleX += (2.0 - this.scaleX) / 2;
-        // } else {}
         switch (this.currentState) {
             case this.State.IDLE:
                 this.targetScaleX = 1.0;
                 this.targetScaleY = 1.0;
             break;
             case this.State.HOVERED:
-                this.targetScaleX = 1.3;
-                this.targetScaleY = 1.3;
+                this.targetScaleX = 1.1;
+                this.targetScaleY = 1.7;
             break;
             case this.State.CLICKED:
                 this.targetScaleX = 1.15;
@@ -69,8 +66,8 @@ class Waypoint {
         }
 
         // Animate sprite scale
-        this.scaleX += (this.targetScaleX - this.scaleX) / 2;
-        this.scaleY += (this.targetScaleY - this.scaleY) / 2;
+        this.scaleX += (this.targetScaleX - this.scaleX) / 1.3;
+        this.scaleY += (this.targetScaleY - this.scaleY) / 1.3;
         
         // Apply sprite scale
         this.scale.x = this.scaleX / 3;
@@ -90,6 +87,15 @@ const generateCircleTexture = (renderer, radius, color) => {
     gfx.beginFill(color);
     gfx.drawCircle(tileSize / 2, tileSize / 2, radius);
     gfx.endFill();
+
+    let dropShadowFilter = new PIXI.filters.DropShadowFilter();
+    dropShadowFilter.color = 0x000020;
+    dropShadowFilter.quality = 10;
+    dropShadowFilter.alpha = 0.5;
+    dropShadowFilter.blur = 3;
+    dropShadowFilter.distance = 10;
+
+    gfx.filters = [ dropShadowFilter ];
   
     renderer.render(gfx, texture);
   
