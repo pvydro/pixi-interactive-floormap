@@ -77,24 +77,30 @@ App.initialize = function() {
 }
 
 function showShowcasePage(id) {
-    // Create iframe
-    let frameElement = $('<iframe>', {
-        src: 'showcasepage.html?showcase=' + id,
-        id: 'showcase-frame',
-        frameborder: '0',
-        scrolling: 'no'
+
+    Transition.enableTransition(function() {
+        // Create iframe
+        let frameElement = $('<iframe>', {
+            src: 'showcasepage.html?showcase=' + id,
+            id: 'showcase-frame',
+            frameborder: '0',
+            scrolling: 'no'
+        });
+        frameElement.css('pointer-events', 'all')
+
+        // Add iframe to DOM
+        frameElement.insertBefore('#showcase-page .back-button');
+
+        // Display back button
+        $('#showcase-page .back-button').css('display', 'block');
     });
-    frameElement.css('pointer-events', 'all')
-
-    // Add iframe to DOM
-    frameElement.insertBefore('#showcase-page .back-button');
-
-    // Display back button
-    $('#showcase-page .back-button').css('display', 'block');
 }
 
 function hideShowcasePage() {
-    $('#showcase-frame').remove();
+
+    Transition.enableTransition(function() {
+        $('#showcase-frame').remove();
+    });
 }
 
 $(document).ready(function() {

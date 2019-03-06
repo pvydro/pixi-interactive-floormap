@@ -116,7 +116,7 @@ canvas {
     position: fixed;
     left: var(--fixed-margin);
     bottom: var(--fixed-margin);
-    z-index: 999;
+    z-index: 90;
     font-size: 2.5vw;
     color: white;
     opacity: 0.5;
