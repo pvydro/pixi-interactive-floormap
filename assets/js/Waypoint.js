@@ -4,7 +4,7 @@ class Waypoint {
         this.yPercent = yPercent;
         this.color = 0x459e76;
 
-        let radius = 60;
+        let radius = 30;
         let circTxt = generateCircleTexture(Application.renderer, radius, this.color);
         this.sprite = new PIXI.Sprite(circTxt);
 
@@ -28,7 +28,8 @@ class Waypoint {
         this.sprite.State = {
             IDLE: 0,
             HOVERED: 1,
-            CLICKED: 2
+            CLICKING: 2,
+            CLICKED: 3
         }
         this.sprite.currentState = this.sprite.State.IDLE;
         this.sprite.targetScaleX = 1.0;
@@ -48,19 +49,21 @@ class Waypoint {
         this.responsiveScaleMultiplier = PORTRAIT ? 2.3 : 1.0;
 
         // Hover
-        if (this.currentState != this.State.CLICKED) {
-            if (this.currentState == this.State.CLICKING) {
-                if (!TinkPointer.isDown) {
-                    this.currentState = this.State.CLICKED;
-                    this.clicked();
+        if (WaypointManager.noOthersClicked()) {
+            if (this.currentState != this.State.CLICKED) {
+                if (this.currentState == this.State.CLICKING) {
+                    if (!TinkPointer.isDown) {
+                        this.currentState = this.State.CLICKED;
+                        this.clicked();
+                    }
+                } if (TinkPointer.hitTestSprite(this)) {
+                    this.currentState = this.State.HOVERED;
+                    if (TinkPointer.isDown) {
+                        this.currentState = this.State.CLICKING;
+                    }
+                } else {
+                    this.currentState = this.State.IDLE;
                 }
-            } if (TinkPointer.hitTestSprite(this)) {
-                this.currentState = this.State.HOVERED;
-                if (TinkPointer.isDown) {
-                    this.currentState = this.State.CLICKING;
-                }
-            } else {
-                this.currentState = this.State.IDLE;
             }
         }
 
@@ -93,8 +96,8 @@ class Waypoint {
         this.scaleY += (this.targetScaleY - this.scaleY) / 1.3;
         
         // Apply sprite scale
-        this.scale.x = this.scaleX / 3;
-        this.scale.y = this.scaleY / 3;
+        this.scale.x = this.scaleX;
+        this.scale.y = this.scaleY;
 
         // Apply responsive scale
         this.scale.x *= this.responsiveScaleMultiplier;
