@@ -94,7 +94,6 @@ function showShowcasePage(id) {
 }
 
 function hideShowcasePage() {
-    console.log("Removed showcase");
     $('#showcase-frame').remove();
 }
 
