@@ -3,9 +3,10 @@ class Waypoint {
         this.xPercent = xPercent;
         this.yPercent = yPercent;
         this.showcaseID = showcaseID;
+        this.color = 0x459e76;
 
-        let radius = 60
-        let circTxt = generateCircleTexture(Application.renderer, radius, 0x459e76);
+        let radius = 60;
+        let circTxt = generateCircleTexture(Application.renderer, radius, this.color);
         this.sprite = new PIXI.Sprite(circTxt);
 
         // Set position
@@ -35,6 +36,8 @@ class Waypoint {
         this.sprite.targetScaleY = 1.0;
         this.sprite.scaleX = 1.0;
         this.sprite.scaleY = 1.0;
+        this.sprite.color = this.color;
+        this.sprite.clickedColor = 0x23513C;
 
         WaypointManager.addWaypoint(this.sprite);
     }
@@ -42,8 +45,16 @@ class Waypoint {
     update() {
         // Hover
         if (this.currentState != this.State.CLICKED) {
-            if (TinkPointer.hitTestSprite(this)) {
+            if (this.currentState == this.State.CLICKING) {
+                if (!TinkPointer.isDown) {
+                    this.currentState = this.State.CLICKED;
+                    this.clicked();
+                }
+            } if (TinkPointer.hitTestSprite(this)) {
                 this.currentState = this.State.HOVERED;
+                if (TinkPointer.isDown) {
+                    this.currentState = this.State.CLICKING;
+                }
             } else {
                 this.currentState = this.State.IDLE;
             }
@@ -52,14 +63,22 @@ class Waypoint {
         // Alter target scale based on state
         switch (this.currentState) {
             case this.State.IDLE:
+                this.tint = 0xFFFFFF;
                 this.targetScaleX = 1.0;
                 this.targetScaleY = 1.0;
             break;
             case this.State.HOVERED:
+                this.tint = 0xFFFFFF;
                 this.targetScaleX = 1.1;
                 this.targetScaleY = 1.7;
             break;
+            case this.State.CLICKING:
+                this.tint = this.color;
+                this.targetScaleX = 0.9;
+                this.targetScaleY = 0.9;
+            break;
             case this.State.CLICKED:
+                this.tint = 0xFFFFFF;
                 this.targetScaleX = 1.15;
                 this.targetScaleY = 1.15;
             break;
@@ -78,26 +97,3 @@ class Waypoint {
         
     }
 }
-
-const generateCircleTexture = (renderer, radius, color) => {
-    const gfx = new PIXI.Graphics();
-    const tileSize = radius * 3;
-    const texture = PIXI.RenderTexture.create(tileSize, tileSize);
-  
-    gfx.beginFill(color);
-    gfx.drawCircle(tileSize / 2, tileSize / 2, radius);
-    gfx.endFill();
-
-    let dropShadowFilter = new PIXI.filters.DropShadowFilter();
-    dropShadowFilter.color = 0x000020;
-    dropShadowFilter.quality = 10;
-    dropShadowFilter.alpha = 0.5;
-    dropShadowFilter.blur = 3;
-    dropShadowFilter.distance = 10;
-
-    gfx.filters = [ dropShadowFilter ];
-  
-    renderer.render(gfx, texture);
-  
-    return texture;
-  }
