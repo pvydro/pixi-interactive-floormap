@@ -98,3 +98,20 @@ body {
     background-color: rgba(0, 0, 0, 0.3);
     box-shadow: -5px 0px 20px rgba(0, 0, 0, 0.3);
 }
+
+@media (orientation: portrait) {
+    #main .row {
+        height: 50vh;
+    }
+    #text-column .border-piece {
+        display: none;
+    }
+    #text-column .title h1 {
+        font-size: 7vw;
+    }
+    #image-column {
+        width: 100%;
+        height: 50%;
+        top: 50%;
+    }
+}
