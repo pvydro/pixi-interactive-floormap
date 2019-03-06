@@ -1,12 +1,20 @@
 var Application = undefined;
 var TinkObj = undefined;
 var TinkPointer = undefined;
+var PORTRAIT = false;
 
 // App object for updating & rendering
 var App = {};
 App.update = function() {
     if (!SceneManager.currentScene) {
         return;
+    }
+
+    // Check for orientation
+    if (Application.renderer.width < Application.renderer.height) {
+        PORTRAIT = true;
+    } else {
+        PORTRAIT = false;
     }
 
     // Get all entities and update them
@@ -86,7 +94,7 @@ function showShowcasePage(id) {
             frameborder: '0',
             scrolling: 'no'
         });
-        frameElement.css('pointer-events', 'all')
+        frameElement.css('pointer-events', 'all');
 
         // Add iframe to DOM
         frameElement.insertBefore('#showcase-page .back-button');
