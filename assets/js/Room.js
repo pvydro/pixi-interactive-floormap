@@ -35,13 +35,21 @@ class Room {
     }
 
     findWaypoints() {
+        let parsedID = RoomIDs[this.id];
         let newWaypoints = [];
         
-        switch (this.id) {
-            case "THEATER":
-                newWaypoints = [
-                    new Waypoint(20, 20, "TEMP")
-                ]
+        switch (parsedID) {
+            case RoomIDs.THEATER:
+                newWaypoints.push(new Waypoint(-22.8, -1.75, parsedID));
+            break;
+            case RoomIDs.GUEST_BED:
+                newWaypoints.push(new Waypoint(-2.7, 11, parsedID));
+            break;
+            case RoomIDs.GUEST_BATHROOM:
+                newWaypoints.push(new Waypoint(-5.35, 3, parsedID));
+            break;
+            case RoomIDs.WINE_CELLAR:
+                newWaypoints.push(new Waypoint(10, -11.5, parsedID));
             break;
         }
 
