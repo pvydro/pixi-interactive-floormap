@@ -94,6 +94,6 @@ class Waypoint {
     }
 
     clicked() {
-        showShowcasePage(window.btoa(this.id));
+        showShowcasePage(window.btoa(this.showcaseID));
     }
 }

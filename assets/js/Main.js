@@ -77,7 +77,6 @@ App.initialize = function() {
 }
 
 function showShowcasePage(id) {
-    console.log("SHOWED " + id);
     // Create iframe
     let frameElement = $('<iframe>', {
         src: 'showcasepage.html?showcase=' + id,
