@@ -88,10 +88,14 @@ function showShowcasePage(id) {
 
     // Add iframe to DOM
     frameElement.insertBefore('#showcase-page .back-button');
+
+    // Display back button
+    $('#showcase-page .back-button').css('display', 'block');
 }
 
 function hideShowcasePage() {
-
+    console.log("Removed showcase");
+    $('#showcase-frame').remove();
 }
 
 $(document).ready(function() {
