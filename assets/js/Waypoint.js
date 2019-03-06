@@ -35,6 +35,7 @@ class Waypoint {
         this.sprite.targetScaleY = 1.0;
         this.sprite.scaleX = 1.0;
         this.sprite.scaleY = 1.0;
+        this.sprite.responsiveScaleMultiplier = 1.0;
         this.sprite.color = this.color;
         this.sprite.clickedColor = 0x23513C;
         this.sprite.showcaseID = showcaseID;
@@ -43,6 +44,9 @@ class Waypoint {
     }
 
     update() {
+        // Configure scale multiplier by orientations
+        this.responsiveScaleMultiplier = PORTRAIT ? 2.3 : 1.0;
+
         // Hover
         if (this.currentState != this.State.CLICKED) {
             if (this.currentState == this.State.CLICKING) {
@@ -91,6 +95,10 @@ class Waypoint {
         // Apply sprite scale
         this.scale.x = this.scaleX / 3;
         this.scale.y = this.scaleY / 3;
+
+        // Apply responsive scale
+        this.scale.x *= this.responsiveScaleMultiplier;
+        this.scale.y *= this.responsiveScaleMultiplier;
     }
 
     clicked() {
