@@ -137,4 +137,8 @@ canvas {
         width: 90%;
         height: auto;
     }
+    #showcase-page .back-button {
+        opacity: 0.7;
+        font-size: 6vw;
+    }
 }
