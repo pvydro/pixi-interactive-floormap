@@ -17,7 +17,7 @@ var WaypointHoverText = {
         this.hovering = true;
 
         $(this.element).addClass('active');
-        $(this.element + " p").text(text);
+        $(this.element + " p").text("> " + text);
     },
 
     unhover() {

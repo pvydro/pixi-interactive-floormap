@@ -133,12 +133,12 @@ canvas {
 }
 
 #waypoint-hover-text {
+    white-space: nowrap;
     opacity: 0;
     pointer-events: none;
     font-size: 3vw;
     position: fixed;
-    color: black;
-    overflow-x: hidden;
+    color: white;
     padding-right: 0px;
     transition: opacity 0.5s;
 }
@@ -146,12 +146,15 @@ canvas {
     opacity: 1;
 }
 #waypoint-hover-text p {
-    transition: 0.2s;
+    white-space: nowrap;
+    transition: 0.1s;
     transition-delay: 0.1s;
-    padding-right: 10px;
+    padding: 0px 13px;
+    transform-origin: center left;
 }
 #waypoint-hover-text.active p {
-    border-right: 5px solid var(--secondary-color);
+    border-right: 7px solid var(--secondary-color);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 @media (orientation: portrait) {
