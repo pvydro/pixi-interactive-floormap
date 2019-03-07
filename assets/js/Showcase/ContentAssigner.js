@@ -1,10 +1,11 @@
 var ShowcaseJSONObject = undefined;
 
 function assignText() {
-    // Add header text
+    // Add content to page elements
     $("#text-column .title h1").text(ShowcaseJSONObject.name);
     $("#text-column .showcase-text p").text(ShowcaseJSONObject.description);
-    // $("")
+    let imageSrc = 'assets/imgs/showcase/' + ShowcaseJSONObject.image
+    $(".showcase-image").attr('src', imageSrc);
     
     // Apply background
     $(".image-holder-background").css({

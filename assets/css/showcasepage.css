@@ -7,7 +7,7 @@ body {
     height: 100vh;
     background-color: #26381c;
     background: linear-gradient(45deg, rgba(38,56,28,1) 0%,rgba(64,91,45,1) 50%,rgba(38,56,28,1) 100%);
-    background-size: cover;
+    background-size: fill;
 }
 
 #main {
