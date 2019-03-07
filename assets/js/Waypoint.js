@@ -42,11 +42,23 @@ class Waypoint {
         this.sprite.interactive = true;
         this.sprite.clickedColor = 0x23513C;
         this.sprite.showcaseID = showcaseID;
+        this.sprite.targetScale = 1.0;
 
         WaypointManager.addWaypoint(this.sprite);
     }
 
     update() {
+        // Set scale based on zoom level
+        // this.scale.x = 
+        // console.log(HomeDiagram.zoomScaleY);
+        // this.targetScale = HomeDiagram.zoomScaleY > 1 ? 
+        //     HomeDiagram.zoomScaleY * 0.1 : HomeDiagram.zoomScaleY * 5;
+
+        // let newScale = (this.targetScale - this.scale.x) / 4;
+        // this.scale.x += newScale;
+        // this.scale.y += newScale;
+        // this.width = 100;
+
         // Get base size
         let baseSize = Application.renderer.height * 0.03;
 
@@ -92,8 +104,12 @@ class Waypoint {
         }
 
         // Animate sprite scale and rotation
-        this.width += (this.targetWidth - this.width) / 1.3;
-        this.height += (this.targetHeight - this.height) / 1.3;
+        // this.width += (this.targetWidth - this.width) / 1.3;
+        // this.height += (this.targetHeight - this.height) / 1.3;
+        let newScale = (HomeDiagram.maximumZoomScaleY - HomeDiagram.zoomScaleY);
+        newScale *= 0.5;
+        this.scale.x = newScale;
+        this.scale.y = newScale;
 
         this.rotation += (this.targetRotation - this.rotation) / 1.5;
     }

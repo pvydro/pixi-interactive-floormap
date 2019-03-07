@@ -70,6 +70,7 @@ class Room {
             case RoomIDs.ENTRYWAY: wp = new Waypoint(-5, -7, parsedID); break;
             case RoomIDs.DECK: wp = new Waypoint(16, 14, parsedID); break;
             // Upper
+            case RoomIDs.BUNK_ROOM: wp = new Waypoint(-25, -3, parsedID); break;
         }
 
         newWaypoints.push(wp);
