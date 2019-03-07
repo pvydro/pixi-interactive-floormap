@@ -3,7 +3,8 @@ var ShowcaseJSONObject = undefined;
 function assignText() {
     // Add header text
     $("#text-column .title h1").text(ShowcaseJSONObject.name);
-    $("#text-column .showcase-text p").text(ShowcaseJSONObject.description)
+    $("#text-column .showcase-text p").text(ShowcaseJSONObject.description);
+    // $("")
 }
 
 function getShowcaseJSONObjectByID() {

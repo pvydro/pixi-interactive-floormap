@@ -96,6 +96,7 @@ App.initialize = function() {
 function showShowcasePage(id) {
 
     Transition.enableTransition(function() {
+        $('#map-canvas').css('display', 'none');
         // Create iframe
         let frameElement = $('<iframe>', {
             src: 'showcasepage.html?showcase=' + id,
@@ -116,6 +117,7 @@ function showShowcasePage(id) {
 function hideShowcasePage() {
 
     Transition.enableTransition(function() {
+        $('#map-canvas').css('display', 'block');
         $('#showcase-frame').remove();
     });
 }

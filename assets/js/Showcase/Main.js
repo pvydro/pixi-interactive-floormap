@@ -1,6 +1,5 @@
 var _ID = undefined;
 
-
 $(document).ready(function() {
     // Get showcase parameters
     var urlParams = new URLSearchParams(location.search);
@@ -23,8 +22,18 @@ $(document).ready(function() {
         maxTilt: 3,
         reset: true
     });
-    tiltColumn.on('tilt.onleave', function() {
-        console.log("Leave");
-        $('.tilt-container').removeAttr("style");
-    })
+
+    $('.image-holder').on('click', function() {
+        if (!$(this).hasClass('active')) {
+            $("#image-column").addClass('active');
+            $(this).addClass('active');
+            $('#image-column .close-button').fadeIn(300);
+        }
+    });
+
+    $('#image-column .close-button').on('click', function() {
+        $('#image-column').removeClass('active');
+        $('.image-holder').removeClass('active');
+        $(this).fadeOut(300);
+    });
 });
