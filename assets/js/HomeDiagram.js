@@ -13,14 +13,14 @@ function createHomeDiagram() {
     HomeDiagram.currentFloorIndex = 0;
     HomeDiagram.currentFloor = HomeDiagram.floors[HomeDiagram.currentFloorIndex];
 
+    for (var i in HomeDiagram.floors) {
+        let f = HomeDiagram.floors[i];
+    }
+
     // Apply home diagram dragging capabilities
     HomeDiagram.interactive = true;
     HomeDiagram.buttonMode = true;
     TinkObj.makeDraggable(HomeDiagram);
-
-    // Set initial HomeDiagram position
-    HomeDiagram.anchor.set(0.5);
-    HomeDiagram.position.set(window.innerWidth / 2, window.innerHeight / 2);
 
     HomeDiagram.init = function() {
         // Initialize all roomss
@@ -37,10 +37,7 @@ function createHomeDiagram() {
     }
 
     HomeDiagram.resize = function() {
-        let width = Application.renderer.width;
-        
-        resizeSpriteByWidth(width, this);
-
+        HomeDiagram.anchor.set(0.5, 0.5);
         HomeDiagram.position.set(window.innerWidth / 2, window.innerHeight / 2);
     }
 
@@ -51,7 +48,7 @@ function createHomeDiagram() {
         if (this.currentFloorIndex == this.floors.length - 1) {
             return;
         }
-        
+
         Transition.enableTransition(function() {
             WaypointManager.clearWaypoints();
             this.currentFloorIndex++;
@@ -84,6 +81,7 @@ function createHomeDiagram() {
         this.currentFloor.init();
         this.currentFloor.populateSideNav();
 
+        this.resize();
     }
 
     HomeDiagram.checkLevelButtons = function() {

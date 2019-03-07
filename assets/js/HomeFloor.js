@@ -53,6 +53,7 @@ class HomeFloor {
         for (var i in roomIDs) {
             for (var r in AllRooms) {
                 if (RoomIDs[AllRooms[r].id] == roomIDs[i]) {
+                    AllRooms[r].init();
                     rooms.push(AllRooms[r]);
                 }
             }

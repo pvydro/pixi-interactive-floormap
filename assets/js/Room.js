@@ -22,6 +22,9 @@ var AllRooms = [];
 class Room {
     constructor(roomID) {
         this.id = roomID;
+    }
+
+    init() {
         this.waypoints = this.findWaypoints();
     }
 

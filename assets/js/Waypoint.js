@@ -15,8 +15,9 @@ class Waypoint {
             width: HomeDiagram.width,
             height: HomeDiagram.height
         }
-        this.sprite.x = diagramBounds.width * (xPercent * 0.01);
-        this.sprite.y = diagramBounds.height * (yPercent * 0.01);
+
+        this.sprite.position.x = diagramBounds.width * (xPercent * 0.01);
+        this.sprite.position.y = diagramBounds.height * (yPercent * 0.01);
 
         // Assign functions
         this.sprite.update = this.update;
