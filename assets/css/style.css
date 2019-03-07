@@ -163,4 +163,7 @@ canvas {
         opacity: 0.7;
         font-size: 6vw;
     }
+    #waypoint-hover-text {
+        font-size: 7vw;
+    }
 }
