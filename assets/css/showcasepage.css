@@ -69,6 +69,7 @@ body {
     opacity: 0.1;
 }
 #text-column .showcase-text {
+    font-size: 2vw;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -211,6 +212,9 @@ body {
 @media (orientation: portrait) {
     #main .row {
         height: 50vh;
+    }
+    #text-column .showcase-text {
+        font-size: 4vw;
     }
     #text-column {
         width: 100vw;

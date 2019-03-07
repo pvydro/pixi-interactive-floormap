@@ -44,7 +44,7 @@ var ShowcaseContentJSON = {
     GreatRoom: {
         id: "Great Room",
         name: "Great Room",
-        description: "This great room makes a statement with it's fully see through Walls, they also act as sliding glass doors overlooking the lake views, if these walls could talk they'd be uprfront and transparent. This room is fully furnished with comfortable high end seating arrangements making this the perfect room to relax and read a book in.",
+        description: "This great room makes a statement with it's fully see through Walls, they also act as sliding glass doors overlooking the lake views, if these walls could talk they'd be upfront and transparent. This room is fully furnished with comfortable high end seating arrangements making this the perfect room to relax and read a book in.",
         image: "greatroom.jpg"
     },
     GearRoom: {
