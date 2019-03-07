@@ -5,6 +5,12 @@ var RoomIDs = {
     SITUATION_ROOM: "Situation Room",
     POOL: "Pool",
     BUNK_ROOM: "Bunk Room",
+    GREAT_ROOM: "Great Room",
+    GEAR_ROOM: "Gear Room",
+    SKYBRIDGE: "Skybridge",
+    LIBRARY: "Library",
+    ENTRYWAY: "Entryway",
+    DECK: "Deck"
 }
 
 var LowerRoomIDs = [
@@ -12,10 +18,13 @@ var LowerRoomIDs = [
     RoomIDs.SITUATION_ROOM, RoomIDs.POOL
 ]
 var MidRoomIDs = [
-    
+    RoomIDs.GREAT_ROOM, RoomIDs.GEAR_ROOM,
+    RoomIDs.SKYBRIDGE, RoomIDs.LIBRARY,
+    RoomIDs.ENTRYWAY, RoomIDs.DECK
+
 ]
 var UpperRoomIDs = [
-    RoomIDs.BUNK_ROOM,
+    RoomIDs.BUNK_ROOM
 ]
 
 var AllRooms = [];

@@ -95,7 +95,6 @@ function createHomeDiagram() {
     }
 
     HomeDiagram.assignFloor = function() {
-
         this.resize();
         // Get floor using index
         this.currentFloor = this.floors[this.currentFloorIndex];

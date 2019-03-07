@@ -48,9 +48,27 @@ var ShowcaseContentJSON = {
         image: "gearroom.jpg"
     },
     SkyBridge: {
-        id: "Sky Bridge",
-        name: "Sky Bridge",
+        id: "Skybridge",
+        name: "Skybridge",
         description: "",
         image: "skybridge.jpg"
+    },
+    Library: {
+        id: "Library",
+        name: "Library",
+        description: "",
+        image: "library.jpg"
+    },
+    Entryway: {
+        id: "Entryway",
+        name: "Entryway",
+        description: "",
+        image: "entryway.jpg"
+    },
+    Deck: {
+        id: "Deck",
+        name: "Deck",
+        description: "",
+        image: "deck.jpg"
     }
 }
