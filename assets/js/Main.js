@@ -77,6 +77,15 @@ App.initialize = function() {
     TinkPointer = TinkObj.makePointer();
     document.querySelector('#map-canvas').appendChild(Application.view);
 
+    // Add scroll listener for zoom
+    Application.view.addEventListener('wheel', function(event){
+        // console.log("ScrollY: " + event.deltaY);
+        if (HomeDiagram) {
+            HomeDiagram.scrollY(event.deltaY);
+        }
+        return false; 
+    }, false);
+
     // Initialize scenes & set initial scene
     SceneManager.initializeScenes();
     SceneManager.enterScene(SceneManager.Scenes.HOME);

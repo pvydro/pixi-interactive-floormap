@@ -3,6 +3,7 @@ class Waypoint {
         this.xPercent = xPercent;
         this.yPercent = yPercent;
         this.color = 0x459e76;
+        this.hoveredColor = 0x224f3b;
 
 
         this.sprite = new PIXI.Sprite(PIXI.loader.resources[ImageURLS.WAYPOINT].texture);
@@ -74,19 +75,19 @@ class Waypoint {
                 this.targetWidth = baseSize;
                 this.targetHeight = baseSize;
                 this.targetRotation = 0;
-                this.tint = 0xFFFFFF;
+                this.tint = this.color;
             break;
             case this.State.HOVERED:
                 this.targetWidth = baseSize * 1.1;
                 this.targetHeight = baseSize * 1.1;
                 this.targetRotation = 45 * (Math.PI / 180);
-                this.tint = 0xFFFFFF;
+                this.tint = this.color;
             break;
             case this.State.CLICKING:
                 this.targetWidth = baseSize * 0.9;
                 this.targetHeight = baseSize * 0.9;
                 this.targetRotation = 90 * (Math.PI / 180);
-                this.tint = this.color;
+                this.tint = this.hoveredColor;
             break;
         }
 

@@ -4,6 +4,7 @@ var RoomIDs = {
     GUEST_BATHROOM: "Guest Bathroom",
     SITUATION_ROOM: "Situation Room",
     POOL: "Pool",
+    BUNK_ROOM: "Bunk Room",
 }
 
 var LowerRoomIDs = [
@@ -11,10 +12,10 @@ var LowerRoomIDs = [
     RoomIDs.SITUATION_ROOM, RoomIDs.POOL
 ]
 var MidRoomIDs = [
-
+    
 ]
 var UpperRoomIDs = [
-    
+    RoomIDs.BUNK_ROOM,
 ]
 
 var AllRooms = [];

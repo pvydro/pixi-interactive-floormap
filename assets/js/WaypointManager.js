@@ -29,7 +29,6 @@ var WaypointManager = {
   },
 
   clearWaypoints: function() {
-    console.log("Cleared");
     // Clear array
     this.allWaypoints = [];
 

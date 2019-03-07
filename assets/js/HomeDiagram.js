@@ -22,6 +22,14 @@ function createHomeDiagram() {
     HomeDiagram.buttonMode = true;
     TinkObj.makeDraggable(HomeDiagram);
 
+    // Zooming variables
+    HomeDiagram.zoomSpeedDivisor = 20;
+    HomeDiagram.zoomSmoothness = 4;
+    HomeDiagram.targetZoomScaleY = 1.0;
+    HomeDiagram.minimumZoomScaleY = 0.5;
+    HomeDiagram.maximumZoomScaleY = 3.0;
+    HomeDiagram.zoomScaleY = 1.0;
+
     HomeDiagram.init = function() {
         // Initialize all roomss
         createAllRooms();
@@ -42,6 +50,18 @@ function createHomeDiagram() {
     }
 
     HomeDiagram.update = function() {
+        // Cap zoom amount
+        if (this.targetZoomScaleY < this.minimumZoomScaleY) {
+            this.targetZoomScaleY = this.minimumZoomScaleY;
+        } else if (this.targetZoomScaleY > this.maximumZoomScaleY) {
+            this.targetZoomScaleY = this.maximumZoomScaleY;
+        }
+
+        // Ease to zoom amount
+        this.zoomScaleY += (this.targetZoomScaleY - this.zoomScaleY) / this.zoomSmoothness;
+
+        this.scale.x = this.zoomScaleY;
+        this.scale.y = this.zoomScaleY;
     }
 
     HomeDiagram.upOneFloor = function() {
@@ -107,6 +127,19 @@ function createHomeDiagram() {
                 'pointer-events': 'all'
             });
         }
+    }
+
+    HomeDiagram.scrollY = function(amount) {
+        // Cap amount
+        if (amount > 0.5) {
+            amount = 0.5;
+        }
+        else if (amount < -0.5) {
+            amount = -0.5;
+        }
+
+        // Add amount to target zoom
+        this.targetZoomScaleY += (amount / this.zoomSpeedDivisor);
     }
 
     // Initialize
