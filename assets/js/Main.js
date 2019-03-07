@@ -85,6 +85,14 @@ App.initialize = function() {
         }
         return false; 
     }, false);
+    // Prevent scrolling
+    $('#map-canvas').hover(function() {
+        $(document).bind('mousewheel DOMMouseScroll',function() { 
+            stopMouseWheel(); 
+        });
+    }, function() {
+        $(document).unbind('mousewheel DOMMouseScroll');
+    });
 
     // Initialize scenes & set initial scene
     SceneManager.initializeScenes();
@@ -122,6 +130,17 @@ function hideShowcasePage() {
 
 $(document).ready(function() {
     Loader.loadAll(App.initialize);
+
 });
+
+function stopMouseWheel(e){
+    if(!e){ /* IE7, IE8, Chrome, Safari */ 
+        e = window.event; 
+    }
+    if(e.preventDefault) { /* Chrome, Safari, Firefox */ 
+        e.preventDefault(); 
+    } 
+    e.returnValue = false; /* IE7, IE8 */
+}
 
 window.addEventListener('resize', App.resizeAll)
