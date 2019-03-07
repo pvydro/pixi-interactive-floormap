@@ -103,6 +103,7 @@ body {
 #image-column.active {
     width: 100vw;
     height: 100vh;
+    background-color: rgba(0, 0, 0, 1.0);
     top: 0px;
 }
 .image-slider {
