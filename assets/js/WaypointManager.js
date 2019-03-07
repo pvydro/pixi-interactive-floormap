@@ -26,5 +26,20 @@ var WaypointManager = {
       }
     }
     return true;
+  },
+
+  clearWaypoints: function() {
+    console.log("Cleared waypoints");
+    // Clear array
+    this.allWaypoints = [];
+
+    // Remove all waypoints from container
+    var toBeRemoved = [];
+    for (var i in this.container.children) {
+      toBeRemoved.push(this.container.children[i]);
+    }
+    for (var i in toBeRemoved) {
+      this.container.removeChild(toBeRemoved[i]);
+    }
   }
 }

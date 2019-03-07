@@ -4,9 +4,8 @@ class Waypoint {
         this.yPercent = yPercent;
         this.color = 0x459e76;
 
-        let radius = 30;
-        let circTxt = generateCircleTexture(Application.renderer, radius, this.color);
-        this.sprite = new PIXI.Sprite(circTxt);
+
+        this.sprite = new PIXI.Sprite(PIXI.loader.resources[ImageURLS.WAYPOINT].texture);
 
         // Set position
         this.sprite.anchor.set(0.5, 0.5);
@@ -16,7 +15,6 @@ class Waypoint {
             width: HomeDiagram.width,
             height: HomeDiagram.height
         }
-
         this.sprite.x = diagramBounds.width * (xPercent * 0.01);
         this.sprite.y = diagramBounds.height * (yPercent * 0.01);
 
@@ -32,12 +30,14 @@ class Waypoint {
             CLICKED: 3
         }
         this.sprite.currentState = this.sprite.State.IDLE;
-        this.sprite.targetScaleX = 1.0;
-        this.sprite.targetScaleY = 1.0;
         this.sprite.scaleX = 1.0;
         this.sprite.scaleY = 1.0;
+        this.sprite.targetWidth = 0;
+        this.sprite.targetHeight = 0;
+        this.sprite.targetRotation = 0;
         this.sprite.responsiveScaleMultiplier = 1.0;
         this.sprite.color = this.color;
+        this.sprite.interactive = true;
         this.sprite.clickedColor = 0x23513C;
         this.sprite.showcaseID = showcaseID;
 
@@ -45,63 +45,55 @@ class Waypoint {
     }
 
     update() {
-        // Configure scale multiplier by orientations
-        this.responsiveScaleMultiplier = PORTRAIT ? 2.3 : 1.0;
+        // Get base size
+        let baseSize = Application.renderer.height * 0.03;
 
         // Hover
-        if (WaypointManager.noOthersClicked(this)) {
-            if (this.currentState != this.State.CLICKED) {
-                if (this.currentState == this.State.CLICKING) {
-                    if (!TinkPointer.isDown) {
-                        this.currentState = this.State.CLICKED;
-                        this.clicked();
-                    }
-                } if (TinkPointer.hitTestSprite(this)) {
-                    this.currentState = this.State.HOVERED;
-                    if (TinkPointer.isDown) {
-                        this.currentState = this.State.CLICKING;
-                    }
-                } else {
-                    this.currentState = this.State.IDLE;
+        if (this.currentState != this.State.CLICKED) {
+            if (this.currentState == this.State.CLICKING) {
+                if (!TinkPointer.isDown) {
+                    this.currentState = this.State.CLICKED;
+                    this.clicked();
                 }
+            } if (TinkPointer.hitTestSprite(this)
+                && WaypointManager.noOthersClicked(this)) {
+                this.currentState = this.State.HOVERED;
+                if (TinkPointer.isDown) {
+                    this.currentState = this.State.CLICKING;
+                }
+            } else {
+                this.currentState = this.State.IDLE;
             }
         }
 
         // Alter target scale based on state
         switch (this.currentState) {
             case this.State.IDLE:
+            case this.State.CLICKED:    // Fall through intended
+                this.targetWidth = baseSize;
+                this.targetHeight = baseSize;
+                this.targetRotation = 0;
                 this.tint = 0xFFFFFF;
-                this.targetScaleX = 1.0;
-                this.targetScaleY = 1.0;
             break;
             case this.State.HOVERED:
+                this.targetWidth = baseSize * 1.1;
+                this.targetHeight = baseSize * 1.1;
+                this.targetRotation = 45 * (Math.PI / 180);
                 this.tint = 0xFFFFFF;
-                this.targetScaleX = 1.2;
-                this.targetScaleY = 1.2;
             break;
             case this.State.CLICKING:
+                this.targetWidth = baseSize * 0.9;
+                this.targetHeight = baseSize * 0.9;
+                this.targetRotation = 90 * (Math.PI / 180);
                 this.tint = this.color;
-                this.targetScaleX = 0.9;
-                this.targetScaleY = 0.9;
-            break;
-            case this.State.CLICKED:
-                this.tint = 0xFFFFFF;
-                this.targetScaleX = 1.15;
-                this.targetScaleY = 1.15;
             break;
         }
 
-        // Animate sprite scale
-        this.scaleX += (this.targetScaleX - this.scaleX) / 1.3;
-        this.scaleY += (this.targetScaleY - this.scaleY) / 1.3;
-        
-        // Apply sprite scale
-        this.scale.x = this.scaleX;
-        this.scale.y = this.scaleY;
+        // Animate sprite scale and rotation
+        this.width += (this.targetWidth - this.width) / 1.3;
+        this.height += (this.targetHeight - this.height) / 1.3;
 
-        // Apply responsive scale
-        this.scale.x *= this.responsiveScaleMultiplier;
-        this.scale.y *= this.responsiveScaleMultiplier;
+        this.rotation += (this.targetRotation - this.rotation) / 1.5;
     }
 
     clicked() {

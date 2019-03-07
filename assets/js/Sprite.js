@@ -4,7 +4,7 @@ function resizeSpriteByWidth(width, sprite) {
     sprite.height = sprite.height * newScale;
 }
 function resizeSpriteByHeight(height, sprite) {
-let newScale = height / this.height;
+    let newScale = height / this.height;
     sprite.height = height;
     sprite.width = sprite.width * newScale;
 }

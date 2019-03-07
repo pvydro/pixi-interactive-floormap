@@ -29,24 +29,24 @@ function lightenDarkenColor(col, amt) {
 }
 
 const generateCircleTexture = (renderer, radius, color) => {
-    const gfx = new PIXI.Graphics();
-    const tileSize = radius * 3;
-    const texture = PIXI.RenderTexture.create(tileSize, tileSize);
+    // const gfx = new PIXI.Graphics();
+    // const tileSize = radius * 3;
+    // const texture = PIXI.RenderTexture.create(tileSize / 2, tileSize / 2);
   
-    gfx.beginFill(color);
-    gfx.drawCircle(tileSize / 2, tileSize / 2, radius);
-    gfx.endFill();
+    // gfx.beginFill(color);
+    // gfx.drawCircle(tileSize / 4, tileSize / 4, radius);
+    // gfx.endFill();
 
-    let dropShadowFilter = new PIXI.filters.DropShadowFilter();
-    dropShadowFilter.color = 0x000020;
-    dropShadowFilter.quality = 10;
-    dropShadowFilter.alpha = 0.5;
-    dropShadowFilter.blur = 3;
-    dropShadowFilter.distance = 10;
+    // let dropShadowFilter = new PIXI.filters.DropShadowFilter();
+    // dropShadowFilter.color = 0x000020;
+    // dropShadowFilter.quality = 10;
+    // dropShadowFilter.alpha = 0.5;
+    // dropShadowFilter.blur = 3;
+    // dropShadowFilter.distance = 10;
 
-    gfx.filters = [ dropShadowFilter ];
+    // gfx.filters = [ dropShadowFilter ];
   
-    renderer.render(gfx, texture);
+    // renderer.render(gfx, texture);
   
-    return texture;
+    // return texture;
   }

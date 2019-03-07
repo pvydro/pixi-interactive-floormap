@@ -51,8 +51,9 @@ function createHomeDiagram() {
         if (this.currentFloorIndex == this.floors.length - 1) {
             return;
         }
-
+        
         Transition.enableTransition(function() {
+            WaypointManager.clearWaypoints();
             this.currentFloorIndex++;
             this.assignFloor();
             this.checkLevelButtons();
@@ -65,6 +66,7 @@ function createHomeDiagram() {
         }
 
         Transition.enableTransition(function() {
+            WaypointManager.clearWaypoints();
             this.currentFloorIndex--;
             this.assignFloor();
             this.checkLevelButtons();

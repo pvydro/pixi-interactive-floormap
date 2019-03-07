@@ -37,6 +37,8 @@ class Room {
     findWaypoints() {
         let parsedID = RoomIDs[this.id];
         let newWaypoints = [];
+
+        console.log("ParsedID: " + parsedID)
         
         switch (parsedID) {
             case RoomIDs.THEATER:
