@@ -5,6 +5,12 @@ var ShowcaseContentJSON = {
         description: "Theater data description",
         image: "theater.jpg"
     },
+    GuestBed: {
+        id: "Guest Bedroom",
+        name: "Guest Bedroom",
+        description: "",
+        image: "guestbed.jpg"
+    },
     GuestBath: {
         id: "Guest Bathroom",
         name: "Guest Bathroom",
@@ -33,7 +39,7 @@ var ShowcaseContentJSON = {
         id: "Pool",
         name: "Pool",
         description: "The pool is an extremely long and deep body of water, featuring infinity edge, a basketball hoop, a diving board and to top it off a high speed slide to propel you into the water.",
-        image: "situationroom.jpg"
+        image: "pool.jpg"
     },
     GreatRoom: {
         id: "Great Room",
