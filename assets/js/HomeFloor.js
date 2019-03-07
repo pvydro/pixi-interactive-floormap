@@ -20,7 +20,7 @@ class HomeFloor {
             let roomTitle = RoomIDs[roomObj.id];
 
             // Create & append element
-            let buttonElement = "<a class='nav-link'> " + roomTitle + "</a>";
+            let buttonElement = "<a class='nav-link'>" + roomTitle + "</a>";
             $('#side-nav .nav-buttons').append(buttonElement);
         }
     }
@@ -65,15 +65,12 @@ class HomeFloor {
         switch (this.floorType) {
             case FloorType.LOWER:
                 return PIXI.loader.resources[ImageURLS.HOME_LOWER_DIAGRAM].texture;
-                // return PIXI.Texture.from(ImageURLS.HOME_LOWER_DIAGRAM);
             break;
             case FloorType.MIDDLE:
                 return PIXI.loader.resources[ImageURLS.HOME_MID_DIAGRAM].texture;
-                // return PIXI.Texture.from(ImageURLS.HOME_MID_DIAGRAM);
             break;
             case FloorType.UPPER:
                 return PIXI.loader.resources[ImageURLS.HOME_UPPER_DIAGRAM].texture;
-                // return PIXI.Texture.from(ImageURLS.HOME_UPPER_DIAGRAM);
             break;
         }
     }

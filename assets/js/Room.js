@@ -2,12 +2,13 @@ var RoomIDs = {
     THEATER: "Theater",
     GUEST_BED: "Guest Bedroom",
     GUEST_BATHROOM: "Guest Bathroom",
-    WINE_CELLAR: "Wine Cellar"
+    SITUATION_ROOM: "Situation Room",
+    POOL: "Pool",
 }
 
 var LowerRoomIDs = [
-    RoomIDs.THEATER, RoomIDs.GUEST_BED, RoomIDs.GUEST_BATHROOM,
-    RoomIDs.WINE_CELLAR
+    RoomIDs.THEATER, RoomIDs.GUEST_BED,
+    RoomIDs.SITUATION_ROOM, RoomIDs.POOL
 ]
 var MidRoomIDs = [
 
@@ -37,8 +38,6 @@ class Room {
     findWaypoints() {
         let parsedID = RoomIDs[this.id];
         let newWaypoints = [];
-
-        console.log("ParsedID: " + parsedID)
         
         switch (parsedID) {
             case RoomIDs.THEATER:
@@ -47,11 +46,11 @@ class Room {
             case RoomIDs.GUEST_BED:
                 newWaypoints.push(new Waypoint(-2.7, 11, parsedID));
             break;
-            case RoomIDs.GUEST_BATHROOM:
-                newWaypoints.push(new Waypoint(-5.35, 3, parsedID));
+            case RoomIDs.SITUATION_ROOM:
+                newWaypoints.push(new Waypoint(13.6, -7.6, parsedID));
             break;
-            case RoomIDs.WINE_CELLAR:
-                newWaypoints.push(new Waypoint(10, -11.5, parsedID));
+            case RoomIDs.POOL:
+                newWaypoints.push(new Waypoint(-28, 13, parsedID));
             break;
         }
 
