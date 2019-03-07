@@ -45,6 +45,10 @@ function createHomeDiagram() {
     }
 
     HomeDiagram.resize = function() {
+        HomeDiagram.zoomScaleY = 1.0;
+        HomeDiagram.targetZoomScaleY = 1.0;
+        HomeDiagram.scale.x = 1.0;
+        HomeDiagram.scale.y = 1.0;
         HomeDiagram.anchor.set(0.5, 0.5);
         HomeDiagram.position.set(window.innerWidth / 2, window.innerHeight / 2);
     }
@@ -91,6 +95,8 @@ function createHomeDiagram() {
     }
 
     HomeDiagram.assignFloor = function() {
+
+        this.resize();
         // Get floor using index
         this.currentFloor = this.floors[this.currentFloorIndex];
         
