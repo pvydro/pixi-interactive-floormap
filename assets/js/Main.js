@@ -94,6 +94,9 @@ App.initialize = function() {
         $(document).unbind('mousewheel DOMMouseScroll');
     });
 
+    // Make waypoint text follow mouse
+    WaypointHoverText.followMouse();
+
     // Initialize scenes & set initial scene
     SceneManager.initializeScenes();
     SceneManager.enterScene(SceneManager.Scenes.HOME);

@@ -132,6 +132,28 @@ canvas {
     margin-right: 10px;
 }
 
+#waypoint-hover-text {
+    opacity: 0;
+    pointer-events: none;
+    font-size: 3vw;
+    position: fixed;
+    color: black;
+    overflow-x: hidden;
+    padding-right: 0px;
+    transition: opacity 0.5s;
+}
+#waypoint-hover-text.active {
+    opacity: 1;
+}
+#waypoint-hover-text p {
+    transition: 0.2s;
+    transition-delay: 0.1s;
+    padding-right: 10px;
+}
+#waypoint-hover-text.active p {
+    border-right: 5px solid var(--secondary-color);
+}
+
 @media (orientation: portrait) {
     .darkener .darkener-logo {
         width: 90%;

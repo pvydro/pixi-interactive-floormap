@@ -3,10 +3,20 @@ var WaypointManager = {
   container: new PIXI.Container(),
 
   update: function() {
+    let anyHover = false;
     for (var i in this.allWaypoints) {
       let w = this.allWaypoints[i];
 
+      if (TinkPointer.hitTestSprite(w)) {
+        WaypointHoverText.hover(w.showcaseID);
+        anyHover = true;
+      }
+
       w.update();
+    }
+
+    if (!anyHover && WaypointHoverText.hovering) {
+      WaypointHoverText.unhover();
     }
   },
 
