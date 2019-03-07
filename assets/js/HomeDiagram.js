@@ -10,7 +10,7 @@ function createHomeDiagram() {
         new HomeFloor(FloorType.MIDDLE),
         new HomeFloor(FloorType.UPPER)
     ]
-    HomeDiagram.currentFloorIndex = 0;
+    HomeDiagram.currentFloorIndex = 1;
     HomeDiagram.currentFloor = HomeDiagram.floors[HomeDiagram.currentFloorIndex];
 
     for (var i in HomeDiagram.floors) {
@@ -18,8 +18,6 @@ function createHomeDiagram() {
     }
 
     // Apply home diagram dragging capabilities
-    HomeDiagram.interactive = true;
-    HomeDiagram.buttonMode = true;
     TinkObj.makeDraggable(HomeDiagram);
 
     // Zooming variables

@@ -9,6 +9,7 @@ var RoomIDs = {
     GEAR_ROOM: "Gear Room",
     SKYBRIDGE: "Skybridge",
     LIBRARY: "Library",
+    KITCHEN: "Kitchen",
     ENTRYWAY: "Entryway",
     DECK: "Deck"
 }
@@ -20,7 +21,8 @@ var LowerRoomIDs = [
 var MidRoomIDs = [
     RoomIDs.GREAT_ROOM, RoomIDs.GEAR_ROOM,
     RoomIDs.SKYBRIDGE, RoomIDs.LIBRARY,
-    RoomIDs.ENTRYWAY, RoomIDs.DECK
+    RoomIDs.KITCHEN, RoomIDs.ENTRYWAY,
+    RoomIDs.DECK
 
 ]
 var UpperRoomIDs = [
@@ -51,21 +53,26 @@ class Room {
     findWaypoints() {
         let parsedID = RoomIDs[this.id];
         let newWaypoints = [];
+        let wp = undefined;
         
         switch (parsedID) {
-            case RoomIDs.THEATER:
-                newWaypoints.push(new Waypoint(-22.8, -1.75, parsedID));
-            break;
-            case RoomIDs.GUEST_BED:
-                newWaypoints.push(new Waypoint(-2.7, 11, parsedID));
-            break;
-            case RoomIDs.SITUATION_ROOM:
-                newWaypoints.push(new Waypoint(13.6, -7.6, parsedID));
-            break;
-            case RoomIDs.POOL:
-                newWaypoints.push(new Waypoint(-28, 13, parsedID));
-            break;
+            // Lower
+            case RoomIDs.THEATER: wp = new Waypoint(-22.8, -1.75, parsedID); break;
+            case RoomIDs.GUEST_BED: wp = new Waypoint(-2.7, 11, parsedID); break;
+            case RoomIDs.SITUATION_ROOM: wp = new Waypoint(13.6, -7.6, parsedID); break;
+            case RoomIDs.POOL: wp = new Waypoint(-28, 13, parsedID); break;
+            // Mid
+            case RoomIDs.GREAT_ROOM: wp = new Waypoint(20, 2, parsedID); break;
+            case RoomIDs.GEAR_ROOM: wp = new Waypoint(-17, -1, parsedID); break;
+            case RoomIDs.SKYBRIDGE: wp = new Waypoint(-8, 1.2, parsedID); break;
+            case RoomIDs.LIBRARY: wp = new Waypoint(3.5, 12, parsedID); break;
+            case RoomIDs.KITCHEN: wp = new Waypoint(13.2, -4, parsedID); break;
+            case RoomIDs.ENTRYWAY: wp = new Waypoint(-5, -7, parsedID); break;
+            case RoomIDs.DECK: wp = new Waypoint(16, 14, parsedID); break;
+            // Upper
         }
+
+        newWaypoints.push(wp);
 
         return newWaypoints;
     }
