@@ -5,9 +5,7 @@ function assignText() {
     $("#text-column .title h1").text(ShowcaseJSONObject.name);
     $("#text-column .showcase-text p").text(ShowcaseJSONObject.description);
     // $("")
-
-    console.log($('.showcase-image').attr('src'));
-
+    
     // Apply background
     $(".image-holder-background").css({
         "background-image": "url(" + $('.showcase-image').attr('src') + ")"
