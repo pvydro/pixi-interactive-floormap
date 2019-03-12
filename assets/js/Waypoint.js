@@ -2,7 +2,7 @@ class Waypoint {
     constructor(xPercent, yPercent, showcaseID) {
         this.xPercent = xPercent;
         this.yPercent = yPercent;
-        this.color = 0x459e76;
+        this.color = 0x9bbff7;
         this.hoveredColor = 0x224f3b;
 
 

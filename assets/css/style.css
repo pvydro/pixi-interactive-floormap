@@ -136,7 +136,7 @@ canvas {
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
-    font-size: 3vw;
+    font-size: 3vh;
     position: fixed;
     color: white;
     padding-right: 0px;
@@ -165,8 +165,5 @@ canvas {
     #showcase-page .back-button {
         opacity: 0.7;
         font-size: 6vw;
-    }
-    #waypoint-hover-text {
-        font-size: 7vw;
     }
 }
