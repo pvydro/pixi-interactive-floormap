@@ -50,5 +50,32 @@ var WaypointManager = {
     for (var i in toBeRemoved) {
       this.container.removeChild(toBeRemoved[i]);
     }
+  },
+
+  goToWaypoint: function(ButtonID) {
+
+    console.log(HomeDiagram.position.x);
+    HomeDiagram.resetPosition();
+
+    let roomValues = Object.values(RoomIDs);
+    let roomKeyIndex = 0;
+
+    // Find key index
+    for (var i in roomValues) {
+      if (roomValues[i] == ButtonID) {
+        roomKeyIndex = i;
+      }
+    }
+
+    // Find waypoint based on key index
+    let chosenWaypoint = this.allWaypoints[0];
+    for (var i in this.allWaypoints) {
+      if (this.allWaypoints[i].showcaseID == roomValues[roomKeyIndex]) {
+        chosenWaypoint = this.allWaypoints[i];
+      }
+    }
+    
+    HomeDiagram.position.x = HomeDiagram.position.x - chosenWaypoint.position.x;
+    HomeDiagram.position.y = HomeDiagram.position.y - chosenWaypoint.position.y;
   }
 }

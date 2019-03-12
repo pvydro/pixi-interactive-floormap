@@ -51,6 +51,14 @@ function createHomeDiagram() {
         HomeDiagram.position.set(window.innerWidth / 2, window.innerHeight / 2);
     }
 
+    HomeDiagram.resetPosition = function() {
+        HomeDiagram.zoomScaleY = 1.0;
+        HomeDiagram.targetZoomScaleY = 1.0;
+        HomeDiagram.scale.x = 1.0;
+        HomeDiagram.scale.y = 1.0;
+        HomeDiagram.position.set(window.innerWidth / 2, window.innerHeight / 2);
+    }
+
     HomeDiagram.update = function() {
         // Cap zoom amount
         if (this.targetZoomScaleY < this.minimumZoomScaleY) {

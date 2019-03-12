@@ -23,6 +23,12 @@ class HomeFloor {
             let buttonElement = "<a class='nav-link'>" + roomTitle + "</a>";
             $('#side-nav .nav-buttons').append(buttonElement);
         }
+
+        // Add listeners
+        $('.nav-link').on('click', function() {
+            let buttonText = $(this).html();
+            WaypointManager.goToWaypoint(buttonText);
+        })
     }
 
     init() {
