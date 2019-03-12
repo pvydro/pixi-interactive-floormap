@@ -28,6 +28,9 @@ class HomeFloor {
         $('.nav-link').on('click', function() {
             let buttonText = $(this).html();
             WaypointManager.goToWaypoint(buttonText);
+            if (PORTRAIT) {
+                toggleNav();
+            }
         })
     }
 
