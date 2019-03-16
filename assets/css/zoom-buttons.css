@@ -45,3 +45,9 @@
 .zoom-button:active i {
     transform: translate(-50%, -50%) rotate(-5deg);
 }
+
+@media (orientation: portrait) {
+    .zoom-button {
+        margin: 5vh 0px;
+    }
+}
