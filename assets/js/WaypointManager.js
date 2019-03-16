@@ -53,8 +53,6 @@ var WaypointManager = {
   },
 
   goToWaypoint: function(ButtonID) {
-
-    console.log(HomeDiagram.position.x);
     HomeDiagram.resetPosition();
 
     let roomValues = Object.values(RoomIDs);
