@@ -146,4 +146,20 @@ function stopMouseWheel(e){
     e.returnValue = false; /* IE7, IE8 */
 }
 
+function zoomEvent(type) {
+    let zoomAmount = 0.3;
+    switch (type) {
+        case "IN":
+            if (HomeDiagram.targetZoomScaleY < HomeDiagram.maximumZoomScaleY) {
+                HomeDiagram.targetZoomScaleY += zoomAmount;
+            }
+        break;
+        case "OUT":
+            if (HomeDiagram.targetZoomScaleY > HomeDiagram.minimumZoomScaleY) {
+                HomeDiagram.targetZoomScaleY -= zoomAmount;
+            }
+        break;
+    }
+}
+
 window.addEventListener('resize', App.resizeAll)
